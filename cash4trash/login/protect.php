@@ -6,4 +6,5 @@ if(!isset($_SESSION)){
 if(!isset($_SESSION['id'])){
     die("Você não está logado. </p><a href=\"index/index.php\">Acessar</a></p>");
 }
+//teste
 ?>
