@@ -1,6 +1,4 @@
 <?php
-//balela
-//outra balela
     $nome = $_POST["nomeP"];
     $setor = $_POST["setor"];
 	$cpf = $_POST["cnpj"];
