@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="estilo-produto.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Dec 5, 2022 15:37:25").getTime();
+        
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+        // Get today's date and time
+        var now = new Date().getTime();
+        
+          // Find the distance between now and the count down date
+          var distance = countDownDate - now;
+        
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+          // Display the result in the element with id="demo"
+          document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+          + minutes + "m " + seconds + "s ";
+        
+          // If the count down is finished, write some text
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+        </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div></div>
+            <div id="logo">
+                <a href="../index/index.html"><img src="../imagens/logo.svg" id="logo"> </a>
+            </div>
+            <div id="bloco-login">
+                <a href="../login/login.html"><h4 id="login">LOGIN</h4> </a>
+                <img src="../imagens/user.svg" id="user">
+            </div>
+        </div>
+        <nav id="nav">
+            <a href="../index/index.html" id="home">
+                HOME
+            </a>
+            <a href="produtos.html"  id="produtos">
+                PRODUTOS
+            </a>
+            <a href="produto.html" id="lote">
+                LOTE 024/06
+            </a>
+        </nav>
+    </header>
+    <main>
+        <div class="principal">
+            <div class="produto-principal">
+                <div class="imagem-produto">
+                    <img src="../imagens/produto.svg" id="imagem-produto">
+                </div>
+                <div class="infos-produto">
+                    <div class="tag-categoria">
+                        Computadores e acessórios
+                    </div>
+                    <h3 class="negrito">Notebook Samsung Flash F30 Intel Celeron , 4GB RAM, 64GB SSD , Tela Full HD 13.3", Windows 10 - Rosa</h3>
+                    <p>Lote 006/24 - 8 unidades</p>
+                    <h3 class="negrito" id="laranja">Último lance  R$32, 99</h3>
+                    <div class="lance"> 
+                        <center>
+                            <button type="button" class="lance-button">+1</button>
+                            <button type="button" class="lance-button">+3</button>
+                            <button type="button" class="lance-button">+5</button>
+                            <input  id="lance-input" type="text" placeholder="Personalizar oferta">
+                        </center>
+                        <center>
+                            <button type="button" class="w3-button w3-orange">LANÇAR</button>
+                        </center>
+                    </div>
+                </div>
+                <div class="area-cronometro">
+                    <div class="cronometro">
+                        <center class="negrito">
+                            TEMPO
+                        </center>
+                        <center id="tempo">
+                            <p id="demo"></p>
+                        </center>
+
+                    </div>
+                </div>
+            </div>
+            <div class="descricao">
+                <h5 class="negrito">Descrição:</h5>
+                <p>- Upgrade gratuito para o Windows 11 quando disponível. (Confira detalhes a seguir*)</p>
+                <p>- O samsung notebook flash é um dispositivo de estilo único que dá um up no seu look, esteja em suas mãos ou na sua mesa; construído para encaixar em sua rotina e projetado com atenção aos detalhes</p>
+                <p>- Monte o seu look com o notebook flash</p>
+                <p>- Construído para encaixar em sua rotina e projetado com atenção aos detalhes, o samsung notebook flash é o notebook com um senso único de estilo </p>
+                <p>- *O plano de implementação de upgrade do Windows 11 ainda está sendo finalizado, mas está programado para começar no final de 2021 e continuar em 2022. O tempo específico varia de acordo com o dispositivo. </p>
+            </div>
+        </div>
+        <div class="sugestoes">
+            <hr class="linha">
+
+            <div class="bloco">
+                <div class="categoria">
+                    <h4>
+                        LOTES SEMELHANTES
+                    </h4>
+                </div>
+                <div class="produtos">
+
+                    <div class="produto">
+                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
+                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
+                        <p class="preco-produto">R$32,99</p></a>
+                    </div>
+                    <div class="produto">
+                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
+                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
+                        <p class="preco-produto">R$32,99</p></a>
+                    </div>
+                    <div class="produto">
+                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
+                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
+                        <p class="preco-produto">R$32,99</p></a>
+                    </div>
+                    <div class="produto">
+                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
+                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
+                        <p class="preco-produto">R$32,99</p></a>
+                    </div>
+                    <div class="produto">
+                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
+                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
+                        <p class="preco-produto">R$32,99</p></a>
+                    </div>
+
+                </div>
+            </div>
+            <hr class="linha">
+            <div class="bloco">
+                <div class="categoria">
+                    <h4>
+                        DO MESMO ANUNCIANTE
+                    </h4>
+                </div>
+                <div class="produtos">
+
+                    <div class="produto">
+                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
+                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
+                        <p class="preco-produto">R$32,99</p></a>
+                    </div>
+                    <div class="produto">
+                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
+                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
+                        <p class="preco-produto">R$32,99</p></a>
+                    </div>
+                    <div class="produto">
+                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
+                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
+                        <p class="preco-produto">R$32,99</p></a>
+                    </div>
+                    <div class="produto">
+                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
+                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
+                        <p class="preco-produto">R$32,99</p></a>
+                    </div>
+                    <div class="produto">
+                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
+                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
+                        <p class="preco-produto">R$32,99</p></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <br>
+
+    <footer>
+        <center>
+            Copyright © 2022 BloomyBits. Todos os direitos reservados. 
+        </center>
+    </footer>
+
+</body>
+</html>

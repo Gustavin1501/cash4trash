@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:400,700,300,500,600,800|Inter:300,700,900,800|Syne+Tactile:400");
+
+* {
+	padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a{
+    color: #f2f2f2;
+	font-size: 13px;
+	font-weight: 400;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+body {
+    font-size: 12px;
+    background-color: #bdd1d0;
+    color: #a0a5a8;
+	display: flex;
+    margin: 0 auto;
+	padding: 10px 200px;
+    margin-left: 5px; 
+    margin-right: 5px;
+    min-height: 100vh;
+    max-width: 400px;
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    min-width: 1000px;
+    min-height: 600px;
+    height: 100%;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    width: 600px;
+    height: 100%;
+    background-color: #fff;
+    transition: 1.25s;
+	overflow: hidden;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+	padding: 0 50px;
+	text-align: center;
+}
+.form__input {
+    width: 400px;
+    height: 70%;
+    margin: 4px 0;
+    padding-left: 25px;
+    font-size: 14px;
+    letter-spacing: 0.15px;
+    border: none;
+    outline: none;
+    background-color: #EBEEEE;
+    color: #14453D;
+    transition: 0.25s ease;
+    border-radius: 8px;
+	box-sizing: border-box;
+}
+
+header{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: -500px;
+}
+.logo img{
+	height: 45px;
+	width: auto;
+	margin-left: 10px;
+	margin-top: 60px;
+}
+
+p{
+    margin-top: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.form__link {
+    color: #fff;
+    font-size: 13px;
+    margin-top: 25px;
+}
+
+.title, .title1 {
+    font-size: 25px;
+    font-weight: 700;
+    color: #363435;
+}
+.title1{
+    color: #fff;
+}
+
+.description {
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 0.25px;
+    text-align: center;
+    line-height: 1.6;
+    height: 10px;
+	width: auto;
+	margin-left: -50px;
+}
+
+button {
+    border-radius: 40px;
+	border: 0px;
+	color: #ffffff;
+    background-color: #363435;
+	font-size: 13px;
+	font-weight: 600;
+	padding: 8px 30px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+button:hover {
+	transform: scale(1.05);
+}
+
+.a-container {
+    z-index: 200;
+    left: calc(100% - 600px);
+}
+
+.switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 400px;
+    padding: 50px;
+    z-index: 200;
+    transition: 1.25s;
+    background-color: #93B5B4;
+    overflow: hidden;
+}
+.switch__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    width: 400px;
+    padding: 50px 55px;
+    transition: 1.25s;
+}
+.switch__button {
+    border-radius: 40px;
+	border: 0px;
+	background-color: #93B5B4;
+    border: 2px solid #fff;
+	color: #ffffff;
+	font-size: 13px;
+	font-weight: 600;
+	padding: 8px 30px;
+	text-transform: uppercase;
+	cursor: pointer;
+    height: 45px;
+	width: auto;
+	margin-left: 10px;
+	margin-top: 50px;
+}
+.switch__button:hover {
+	transform: scale(1.05);
+}
+.switch__button:active, .switch__button:focus {
+    transform: scale(0.97);
+    transition: 0.25s;
+}
+
+/*
+.container1 {
+	color: #14453D;
+	position: relative;
+	margin-bottom: 10px;
+	cursor: pointer;
+	font-size: 13px;
+}
+.container1 input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #C3C3C3;
+	border-radius: 2px;
+}
+.container1:hover input ~ .checkmark {
+	background-color: #ccc;
+}
+
+.container1 input:checked ~ .checkmark {
+	background-color: #363435;
+}
+.container1 .checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.container1 input:checked ~ .checkmark:after {
+	display: block;
+}*/

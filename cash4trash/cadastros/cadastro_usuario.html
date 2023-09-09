@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='css/all.min.css'>
+	<link rel="stylesheet" href="css/estilo.css">
+    <title>Cadastro usuário</title>
+
+</head>
+<body> 
+        <div class="container" id="container">
+            <div class="form-container sign-in-container">
+            <a href="../index/index.php"><img src="../imagens/logo.jpg" id="logo" draggable="false"></a>
+            <form class="form" id="a-form" method="post" action="cadastro_usuario.php">
+                <div class="cadusuario">
+				<span class="title">
+				Novo usuário por aqui? Cadastre-se!
+				</span>
+				<br/>
+                <div class="trasition">
+                </div>
+                <div class="colunas">
+                    <div class="col1">
+                        <input class="form__input" type="text" name="nome" id="nome" placeholder="Nome completo" required/>
+                        <input class="form__input" type="email" name="email" id="email" placeholder="E-mail" required/>
+                        <span id="emailErro" class="erro"></span>
+                        <input class="form__input" type="text" name="cpf" id="cpf" placeholder="CPF" required/>
+                        <span id="cpfErro" class="erro"></span>
+                        <input class="form__input" type="text" name="cep" id="cep" placeholder="CEP" required/>
+                        <span id="cepErro" class="erro"></span>
+                        <input class="form__input" type="text" name="logradouro" id="logradouro" placeholder="Logradouro" required/>
+                    </div>
+                    <div class="col2">
+                        <input class="form__input" type="text" name="cidade" id="cidade" placeholder="Cidade" required/>
+                        <input class="form__input" type="number" name="numero" id="numero" placeholder="Número" required/>
+                        <input class="form__input" type="text" name="complemento" id="complemento" placeholder="Complemento" />
+                        <input class="form__input" type="password" name="senha" id="senha" placeholder="Senha" required/>
+                        <input class="form__input" type="password" name="senha2" id="senha2" placeholder="Confirme sua senha" required/>
+                        <span id="senhaErro" class="erro"></span>
+                    
+                        <p id="confirma"></p>
+
+                    </div>
+                </div>	
+                <div class="espace">
+                <button class="form__button button submit" id="btnCadastro" type="submit">CADASTRAR</button>
+                </div>
+                </div>
+            </form>
+            </div>
+
+            <div class="form-container sign-up-container">
+                <a href="../index/index.php"><img src="../imagens/logo.jpg" id="logo" draggable="false"></a>
+
+                <form method="post" id ="formP" action="cadastro_parceiro.php">
+                    <br/>
+                    <span class="title">
+                        Novo parceiro por aqui? Cadastre-se!
+                    </span>
+                    <br/>	
+                <div class="colunas">
+                    <div class="col1">
+                        <input class="form__input" type="text" name="nomeP" id="nomeP" placeholder="Nome da empresa" required>
+                        <select name="setor" id="setor" class="form__input">
+                            <option value="">Setor de atuação da empresa:</option>
+                            <option value="tecnologia">Tecnologia</option>
+                            <option value="saude">Saúde</option>
+                            <option value="educacao">Educação</option>
+                            <option value="varejo">Varejo</option>
+                            <option value="alimentos">Alimentos</option>
+                            <option value="financeiro">Financeiro</option>
+                            <option value="servicos">Serviços</option>
+                            <option value="construcao">Construção</option>
+                            <option value="energia">Energia</option>
+                            <option value="transporte">Transporte</option>
+                        </select>
+                        <input class="form__input" type="text" name="cnpj" id="cnpj" placeholder="CNPJ" required>
+                        <span id="cnpjErroP" class="erro"></span>
+                        <select name="tipo" id="tipo" class="form__input" >
+                            <option value="">Tipo de parceiro:</option>
+                            <option value="L">Local</option>
+                            <option value="G">Logístico</option>
+                            <option value="M">Marketplace</option>
+                        </select>
+                        <input class="form__input" type="email" name="emailP" id="emailP" placeholder="E-mail" required>
+                        <span id="emailErroP" class="erro"></span>
+                        <input class="form__input" type="text" id="cepP" name="cepP" placeholder="CEP" required>
+                        <span id="cepErroP" class="erro"></span>
+                    </div>
+                    <div class="col2">
+                        <input class="form__input" type="text" name="logradouroP" id="logradouroP" placeholder="Logradouro" required>
+                        <input class="form__input" type="text" name="cidadeP" id="cidadeP" placeholder="Cidade" required>
+                        <input class="form__input" type="number" name="numeroP" id="numeroP" placeholder="Número" required/>
+                        <input class="form__input" type="text" name="complementoP" id="complementoP" placeholder="Complemento" />
+                        <input class="form__input" type="password" name="senhaP" id="senhaP" placeholder="Senha">
+                        <input class="form__input" type="password" name="senha2P" id="senha2P" placeholder="Confirme sua senha" required/>
+                        <span id="senhaErroP" class="erro"></span>
+                        <span id="confirmaP" class="erro"></span>
+                    </div>
+                </div>
+                
+                <button class="form__button button submit" id="btnCadastroP" type="submit">CADASTRAR</button>
+			</form>
+		</div>
+        <div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Anuncie e compre!</h1>
+					<p>Se você quer se inscrever como um novo usúario, clique no botão abaixo.</p>
+					<button class="ghost" id="signIn" type="button">Cadastro de usúario</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Faça acontecer!</h1>
+					<p>Se você quer se inscrever como um novo parceiro, clique no botão abaixo.</p>
+					<button class="ghost" id="signUp" type="button">Cadastro de parceiro</button>
+				</div>
+			</div>
+		</div>
+	</div>  
+
+    <script src="js/md5.js"></script>
+	<script src="js/index.js"></script>
+    <script src="js/cadastro.js"></script>
+    <script src="js/cadastroparceiro.js"></script>
+    <script src="js/cep.js"></script>
+
+
+
+
+	</body>
+	</html>
