@@ -272,7 +272,6 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `saldo` int(11) NOT NULL,
   PRIMARY KEY (`cpf_cnpj`),
   UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `nome` (`nome`),
   KEY `email_2` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
