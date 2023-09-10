@@ -61,21 +61,24 @@
 					}
 				}
 				else {
-
-					echo "nao cadastrado";
+					header("location: ../cadastros/cadastro_erro.html");
+					//echo "Não cadastrado";
 				}
 				mysqli_free_result($resultado);
 			}
 			else {
-				echo "Problema na comunicação com o BD: " . mysqli_error($conexao);
+				header("location: ../cadastros/cadastro_erro.html");
+				//echo "Problema na comunicação com o BD: " . mysqli_error($conexao);
 			}
 			mysqli_close($conexao);
 		}
 		else {
-			echo "Problema na conexão: " . mysqli_connect_error();
+			header("location: ../cadastros/cadastro_erro.html");
+			//echo "Problema na conexão: " . mysqli_connect_error();
 		}
 	}
 	else {
-		echo"erro na conexao";
+		header("location: ../cadastros/cadastro_erro.html");
+		//echo"erro na conexao";
 	}
 ?>

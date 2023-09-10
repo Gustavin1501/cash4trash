@@ -4,6 +4,6 @@ if(!isset($_SESSION)){
 }
 
 if(!isset($_SESSION['id'])){
-    header("");
+    header("location: ../cadastros/cadastro_erro.html");
 }
 ?>
