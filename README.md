@@ -1,2 +1,2 @@
 # cash4trash
-eu vou fazer um leilao
+eu vou fazer um leilao de lixo kkkk
