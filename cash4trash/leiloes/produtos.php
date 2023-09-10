@@ -4,6 +4,8 @@
 
     require "operacoes.php";
 
+    require "cron/atualizastatuslote.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -53,7 +55,7 @@
                         $cepParceiros = select_query("select cep, nome from usuario where tipo='L'", $conexao);
 
                         $proximos = maisProximos($cepParceiros, $cepUsuario);// retorna nome dos 5 parceiros mais proximos
-                        $lote=090909090909;
+                        $lote=01;
 
                         for ($i=0; $i< count($proximos); $i++){
                             //var_dump($proximos);
@@ -65,7 +67,7 @@
                                     $consulta_lote = select_query("select valor_atual, nome from lote where id='". $lote . "' and statu='1'", $conexao);
                                     while ($linha = mysqli_fetch_assoc($consulta_lote)) {
                                         echo '<div class="produto">
-                                        <a href="produto.php?id='. $lote .'"><img width="150px" src="../produto/'. $img .'.png ">
+                                        <a href="produto.php?id='. $lote .'"><img width="150px" src="../produto/'. $img .' ">
                                         <p class="nome-produto">'. $linha["nome"] .'</p>
                                         <p class="preco-produto">R$ '. $linha["valor_atual"] .' </p></a>
                                         </div>';
@@ -105,7 +107,7 @@
                             $consulta_lixo = select_query("select imagem from lixo where lote='". $id . "' order by lote limit 1", $conexao);
                             while ($linha2 = mysqli_fetch_assoc($consulta_lixo)) {
                                 echo '<div class="produto">
-                                <a href="produto.php?id='. $id .'"><img width="150px" src="../produto/'. $linha2["imagem"] .'.png ">
+                                <a href="produto.php?id='. $id .'"><img width="150px" src="../produto/'. $linha2["imagem"] .' ">
                                 <p class="nome-produto">'. $linha["nome"] .'</p>
                                 <p class="preco-produto">R$ '. $linha["valor_atual"] .' </p></a>
                                 </div>';
@@ -139,7 +141,7 @@
                             $consulta_lixo = select_query("select imagem from lixo where lote='". $id . "' order by lote limit 1", $conexao);
                             while ($linha2 = mysqli_fetch_assoc($consulta_lixo)) {
                                 echo '<div class="produto">
-                                <a href="produto.php?id='. $id .'"><img width="150px" src="../produto/'. $linha2["imagem"] .'.png ">
+                                <a href="produto.php?id='. $id .'"><img width="150px" src="../produto/'. $linha2["imagem"] .' ">
                                 <p class="nome-produto">'. $linha["nome"] .'</p>
                                 <p class="preco-produto">R$ '. $linha["valor_atual"] .' </p></a>
                                 </div>';
@@ -174,7 +176,7 @@
                             $consulta_lixo = select_query("select imagem from lixo where lote='". $id . "' order by lote limit 1", $conexao);
                             while ($linha2 = mysqli_fetch_assoc($consulta_lixo)) {
                                 echo '<div class="produto">
-                                <a href="produto.php?id='. $id .'"><img width="150px" src="../produto/'. $linha2["imagem"] .'.png ">
+                                <a href="produto.php?id='. $id .'"><img width="150px" src="../produto/'. $linha2["imagem"] .' ">
                                 <p class="nome-produto">'. $linha["nome"] .'</p>
                                 <p class="preco-produto">R$ '. $linha["valor_atual"] .' </p></a>
                                 </div>';

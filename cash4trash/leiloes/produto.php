@@ -14,11 +14,9 @@
         <div class="container">
             <div></div>
             <div id="logo">
-                <a href="../index/index.html"><img src="../imagens/logo.svg" id="logo"> </a>
+                <a href="../index/index.php"><img src="../imagens/logo.svg" id="logo"> </a>
             </div>
-            <div id="bloco-login">
-                <a href="../login/login.html"><h4 id="login">LOGIN</h4> </a>
-                <img src="../imagens/user.svg" id="user">
+            <div>
             </div>
         </div>
         <nav id="nav">
@@ -27,9 +25,6 @@
             </a>
             <a href="produtos.php"  id="produtos">
                 PRODUTOS
-            </a>
-            <a href="#" id="lote">
-                LOTE 024/06
             </a>
         </nav>
     </header>
@@ -43,19 +38,22 @@
                 require "operacoes.php";
 
                 $id = $_GET["id"];
-                $consulta_lote = select_query("select valor_atual, nome, inicio, quantidade from lote where id='".$id."'", $conexao);
+
+                $data = array("id" => $id); //para usar o id no JS
+                $jsonData = json_encode($data);
+
+                $consulta_lote = select_query("select valor_atual, nome, inicio, quantidade, descricao from lote where id='".$id."'", $conexao);
                 while ($linha = mysqli_fetch_assoc($consulta_lote)) {
                     $nome=$linha["nome"];
                     $inicio=$linha["inicio"];
                     $qtd=$linha["quantidade"];
                     $valor=$linha["valor_atual"];
-                    $descricao="";
+                    $descricao=$linha["descricao"];
                     $consulta_lixo = select_query("select imagem, descricao, categoria from lixo where lote='". $id . "' order by lote", $conexao);
                     while ($linha2 = mysqli_fetch_assoc($consulta_lixo)) {
                         echo'<div class="imagem-produto">
-                            <img src="../produto/'.$linha2["imagem"].'.png" id="imagem-produto">
+                            <img src="../produto/'.$linha2["imagem"].'" id="imagem-produto">
                             </div>';
-                        $descricao += "<p> - ". $linha2["descricao"] ." </p>";
                         $categoria=$linha2["categoria"];
                     }
                 }
@@ -68,18 +66,22 @@
                     </div>
                     <h3 class="negrito"><?php echo $nome; ?></h3>
                     <p><?php echo $id .' - '. $qtd .' unidades'; ?></p>
-                    <h3 class="negrito" id="laranja">Último lance  R$<?php echo $valor; ?></h3>
+                    <h3 class="negrito" id="laranja">Último lance </h3>
+                    <h3 class="negrito" id="preco">R$ <?php echo $valor; ?></h3>
                     <div class="lance"> 
-                        <center>
-                            <button type="button" class="lance-button" onclick="preencherInput(1)">+1</button>
-                            <button type="button" class="lance-button" onclick="preencherInput(3)">+3</button>
-                            <button type="button" class="lance-button" onclick="preencherInput(5)">+5</button>
-                            <input id="lance-input" type="text" placeholder="Personalizar oferta">
+                        <form action="recebelance.php" method="post">
+                            <center>
+                                <button type="button" class="lance-button" onclick="incrementarInput(1)">+1</button>
+                                <button type="button" class="lance-button" onclick="incrementarInput(3)">+3</button>
+                                <button type="button" class="lance-button" onclick="incrementarInput(5)">+5</button>
 
-                        </center>
-                        <center>
-                            <button type="button" class="w3-button w3-orange">LANÇAR</button>
-                        </center>
+                                <input id="lance-input" name="lance" type="number" min="" step="0.01" placeholder="Personalizar oferta" value="" onchange="" >
+                                <input type="hidden" id="lote" name="lote" value="<?php echo $id; ?>">
+                            </center>
+                            <center>
+                                <button type="submit" id="lancar" class="w3-button w3-orange">LANÇAR</button>
+                            </center>
+                        </form>
                     </div>
                 </div>
                 <div class="area-cronometro">
@@ -102,20 +104,22 @@
                             var inicio = <?php echo $inicio; ?>;
                             
                             // Duração do lote em segundos (20 dias = 20 * 24 * 60 * 60)
-                            var dias = <?php echo $duracao; ?>;
-                            var duracaoLote = dias * 24 * 60 * 60;
+                            //var dias = <?php echo $duracao; ?>;
+                            //var duracaoLote = dias * 24 * 60 * 60;
 
                             // Atualiza o cronômetro
                             function atualizarCronometro() {
                                 var agora = Math.floor(Date.now() / 1000); // Obtém o tempo atual em segundos
 
                                 // Calcula o tempo restante em segundos
-                                var tempoRestante = inicio + duracaoLote - agora;
+                                var tempoRestante = inicio - agora;
 
                                 // Verifica se o lote já foi finalizado
                                 if (tempoRestante <= 0) {
-                                document.getElementById("cronometro").innerHTML = "Lote finalizado!";
-                                return;
+                                    document.getElementById("cronometro").innerHTML = "Lote finalizado!";
+                                    var botaoSubmit = document.getElementById("lancar");
+                                    botaoSubmit.disabled = true;
+                                    return;
                                 }
 
                                 // Converte o tempo restante em dias, horas, minutos e segundos
@@ -174,7 +178,7 @@
                                     while ($linha3 = mysqli_fetch_assoc($consulta_lixo2)) {
                                         $imagem = $linha3["imagem"];
                                         echo '<div class="produto">
-                                        <a href="produto.php?id='. $id .'"><img width="150px" src="../produto/'. $imagem .'.png ">
+                                        <a href="produto.php?id='. $id .'"><img width="150px" src="../produto/'. $imagem .'">
                                         <p class="nome-produto">'. $nome .'</p>
                                         <p class="preco-produto">R$ '. $valor .' </p></a>
                                         </div>';
@@ -204,7 +208,30 @@
             Copyright © 2022 BloomyBits. Todos os direitos reservados. 
         </center>
     </footer>
+    
+    <script>
+        function pegaID(){
+            var jsonData = <?php echo $jsonData; ?>;
+            var id = parseInt(jsonData.id);
+            //console.log(typeof id);
 
+            return id;
+        }
+    
+    </script>
+    <script>
+        function incrementarInput(incremento) {
+        var h3Element = document.getElementById("preco");
+        var valorAtualH3 = parseFloat(h3Element.textContent.replace("R$ ", ""));
+        var inputElement = document.getElementById("lance-input");
+        var valorAtualInput = parseFloat(inputElement.value);
+        var novoValor = valorAtualH3 + incremento;
+        inputElement.value = novoValor.toFixed(2);
+        //atualizaBotaoSubmit(novoValor);  // Atualiza o botão de envio conforme o novo valor
+    }
+
+
+    </script>
     <script  src="js/lance.js"></script>
 
 </body>
