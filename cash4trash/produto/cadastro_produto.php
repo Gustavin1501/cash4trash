@@ -14,7 +14,8 @@
         $resultado = mysqli_query($conexao, $sql);
 
         if (!$resultado) {
-        echo "Erro na consulta: " . mysqli_error($conexao);
+        header("Location: ../cadastros/cadastro_erro.html");
+        //echo "Erro na consulta: " . mysqli_error($conexao);
         exit;
         }
         return $resultado;
@@ -34,14 +35,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css"/>
-    <title>Anunciar</title>
+    <title>Cash4Trash</title>
 </head>
 <body>
     <!--HEADER COM LOGO-->
     <header>
         <div class="logo">
-            <a href="../index.php">
-            <img src="img/logo.jpg">
+            <a href="../index/index.php">
+            <img src="../imagens/logowhite.png">
         </a>
         </div>
     </header>

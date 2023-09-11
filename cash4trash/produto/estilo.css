@@ -53,7 +53,7 @@ header{
 }
 
 body{
-    background-color: #93B5B4;
+    background-color: rgb(218, 138, 72);
     display: flex;
     align-items: center;
     justify-content: center;
