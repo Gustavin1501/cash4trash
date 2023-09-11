@@ -1,26 +1,25 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.2
--- http://www.phpmyadmin.net
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
 --
--- Máquina: localhost
--- Data de Criação: 10-Set-2023 às 02:00
--- Versão do servidor: 5.6.13
--- versão do PHP: 5.4.17
+-- Host: 127.0.0.1:3306
+-- Tempo de geração: 11-Set-2023 às 20:33
+-- Versão do servidor: 8.0.31
+-- versão do PHP: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de Dados: `cash4trash`
+-- Banco de dados: `cash4trash`
 --
-CREATE DATABASE IF NOT EXISTS `cash4trash` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `cash4trash`;
 
 -- --------------------------------------------------------
 
@@ -28,14 +27,15 @@ USE `cash4trash`;
 -- Estrutura da tabela `categoria`
 --
 
+DROP TABLE IF EXISTS `categoria`;
 CREATE TABLE IF NOT EXISTS `categoria` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(20) NOT NULL,
   `valor_inicial` float NOT NULL,
-  `duracao` int(11) NOT NULL,
+  `duracao` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `categoria`
@@ -55,14 +55,15 @@ INSERT INTO `categoria` (`id`, `nome`, `valor_inicial`, `duracao`) VALUES
 -- Estrutura da tabela `lance`
 --
 
+DROP TABLE IF EXISTS `lance`;
 CREATE TABLE IF NOT EXISTS `lance` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `lote` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `lote` int NOT NULL,
   `valor` float NOT NULL,
   `usuario` varchar(50) NOT NULL,
-  `tempo` int(11) NOT NULL,
+  `tempo` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=58 ;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Extraindo dados da tabela `lance`
@@ -133,13 +134,14 @@ INSERT INTO `lance` (`id`, `lote`, `valor`, `usuario`, `tempo`) VALUES
 -- Estrutura da tabela `lixo`
 --
 
+DROP TABLE IF EXISTS `lixo`;
 CREATE TABLE IF NOT EXISTS `lixo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `lote` int(11) DEFAULT NULL,
-  `categoria` varchar(20) CHARACTER SET utf8 NOT NULL,
-  `marca` varchar(20) CHARACTER SET utf8 NOT NULL,
-  `nome` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `descricao` varchar(300) CHARACTER SET utf8 NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `lote` int DEFAULT NULL,
+  `categoria` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `marca` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `nome` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `descricao` varchar(300) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `preco` float NOT NULL,
   `statu` varchar(1) NOT NULL,
   `usuario` varchar(20) NOT NULL,
@@ -149,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `lixo` (
   UNIQUE KEY `imagem` (`imagem`),
   KEY `usuario` (`usuario`),
   KEY `parceiro` (`parceiro`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `lixo`
@@ -178,18 +180,19 @@ INSERT INTO `lixo` (`id`, `lote`, `categoria`, `marca`, `nome`, `descricao`, `pr
 -- Estrutura da tabela `lote`
 --
 
+DROP TABLE IF EXISTS `lote`;
 CREATE TABLE IF NOT EXISTS `lote` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `inicio` double NOT NULL,
   `valor_inicial` float NOT NULL,
   `valor_atual` float NOT NULL,
-  `descricao` varchar(1000) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
-  `quantidade` int(11) NOT NULL,
-  `melhores` int(11) NOT NULL,
-  `statu` int(11) NOT NULL,
+  `descricao` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_swedish_ci NOT NULL,
+  `quantidade` int NOT NULL,
+  `melhores` int NOT NULL,
+  `statu` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22899 ;
+) ENGINE=InnoDB AUTO_INCREMENT=22899 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `lote`
@@ -206,13 +209,14 @@ INSERT INTO `lote` (`id`, `nome`, `inicio`, `valor_inicial`, `valor_atual`, `des
 -- Estrutura da tabela `marca`
 --
 
+DROP TABLE IF EXISTS `marca`;
 CREATE TABLE IF NOT EXISTS `marca` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(20) NOT NULL,
   `categoria` varchar(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `categoria` (`categoria`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `marca`
@@ -238,18 +242,19 @@ INSERT INTO `marca` (`id`, `nome`, `categoria`) VALUES
 -- Estrutura da tabela `marketplace`
 --
 
+DROP TABLE IF EXISTS `marketplace`;
 CREATE TABLE IF NOT EXISTS `marketplace` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) NOT NULL,
   `descricao` varchar(100) NOT NULL,
   `anunciador` varchar(50) NOT NULL,
-  `valorC` int(11) NOT NULL,
-  `valorM_C` int(11) NOT NULL,
-  `valorM_R` int(11) NOT NULL,
-  `categoria` int(11) NOT NULL,
-  `estoque` int(11) NOT NULL,
+  `valorC` int NOT NULL,
+  `valorM_C` int NOT NULL,
+  `valorM_R` int NOT NULL,
+  `categoria` int NOT NULL,
+  `estoque` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -257,19 +262,21 @@ CREATE TABLE IF NOT EXISTS `marketplace` (
 -- Estrutura da tabela `usuario`
 --
 
+DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
-  `nome` varchar(50) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
+  `nome` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_swedish_ci NOT NULL,
   `setor` varchar(20) DEFAULT NULL,
-  `cpf_cnpj` varchar(14) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
-  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
-  `cep` varchar(12) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
-  `logradouro` varchar(50) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
-  `numero` int(11) NOT NULL,
-  `complemento` varchar(50) CHARACTER SET utf8 COLLATE utf8_swedish_ci DEFAULT NULL,
-  `senha` varchar(32) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
+  `nascimento` date NOT NULL,
+  `cpf_cnpj` varchar(14) CHARACTER SET utf8mb3 COLLATE utf8mb3_swedish_ci NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_swedish_ci NOT NULL,
+  `cep` varchar(12) CHARACTER SET utf8mb3 COLLATE utf8mb3_swedish_ci NOT NULL,
+  `logradouro` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_swedish_ci NOT NULL,
+  `numero` int NOT NULL,
+  `complemento` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_swedish_ci DEFAULT NULL,
+  `senha` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_swedish_ci NOT NULL,
   `diretorio` varchar(50) NOT NULL,
   `tipo` varchar(1) NOT NULL,
-  `saldo` int(11) NOT NULL,
+  `saldo` int NOT NULL,
   PRIMARY KEY (`cpf_cnpj`),
   UNIQUE KEY `email` (`email`),
   KEY `email_2` (`email`)
@@ -279,28 +286,28 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`nome`, `setor`, `cpf_cnpj`, `email`, `cep`, `logradouro`, `numero`, `complemento`, `senha`, `diretorio`, `tipo`, `saldo`) VALUES
-('testandpa', 'servicos', '06.057.223/000', 'varej@emal.com', '78948-787', 'Rua VAVa', 456, '', '123', '', 'G', 0),
-('nome teste', NULL, '123.123.123-12', 'email@email.com', '12.123-123', 'rua teste', 123, 'c', '123', '', '', 0),
-('casa da rosquinha', 'alimentício', '13.929.711/000', 'cdr@email.com', '14807303', 'rua dos doces', 44, NULL, '123', '', 'L', 0),
-('nomedeteste', NULL, '217.399.058-65', 'eu@email.com', '17895-789', 'Rua nossa', 55, '', '123', '', 'U', 0),
-('imagem4', NULL, '293.542.720-37', 'ft4@email.com', '42787-557', 'rua da foto', 77, '', '123', 'img_usuarios/semfoto.jpg', 'U', 0),
-('Camiluausia', NULL, '306.824.977-54', 'auau@email.com', '15456-984', 'Rua aquela ', 11, '', '123', 'img_usuarios/1692043376.jpg', 'U', 0),
-('foto 10008', NULL, '441.570.961-34', 'foto1000@email.com', '78564-687', 'rua do nunes', 11, 'kkkkk', '1234', 'img_usuarios/1688351060.jpg', 'U', 0),
-('agora sim tem nome', NULL, '443.065.372-00', 'foto2@email.com', '84645-259', 'rua da fotokkkk', 89, '', '123', 'img_usuarios/semfoto.jpg', 'U', 0),
-('Magazine Luiza', 'varejo', '47.960.950/000', 'magazinelu@email.com', '89654-231', 'Rua do MagaLu', 888, '', '123', '', 'M', 0),
-('Laura Sthefany Colombo', NULL, '503.621.538-92', 'laurasthefanycolombo@gmail.com', '14807-302', 'Rua Paulino Leite', 166, '', '123', '', 'U', 0),
-('minha empresa de saude', 'saude', '53.141.916/000', 'saude@email.com', '58954-742', 'rua da saude', 21, '', '123', '', 'L', 0),
-('ultimo teste', NULL, '617.816.524-22', 'ultimo@email.com', '57896-355', 'rua ultima', 2, '', '123123', 'img_usuarios/semfoto.jpg', 'U', 0),
-('minha empresa tech', 'tecnologia', '63.319.178/000', 'tech@email.com', '78562-325', 'rua da tech', 778, '', '123', '', 'L', 0),
-('teste sem fotot', NULL, '757.003.465-16', 'semfoto@eemail.com', '12354-965', 'rua sem foto', 22, '', '123123', '/semfoto.jpg', 'U', 0),
-('teste de foto', NULL, '784.300.686-94', 'foto@email.com', '45621-568', 'rua da foto', 55, '4', '123', 'img_usuarios/semfoto.jpg', 'U', 0),
-('novo', NULL, '78978978978', 'novo@gmail.com', '12123456', 'rua nova', 1, '', '123', '', '', 0),
-('administrador', NULL, '848.457.880-12', 'adm@email.com', '14807302', 'rua do administrador', 55, NULL, '123', '', 'A', 0),
-('foto 3 T-T', NULL, '917.100.334-79', 'foto3@email.com', '84654-565', 'rua da foto', 54, '', '123', 'img_usuarios/semfoto.jpg', 'U', 0);
+INSERT INTO `usuario` (`nome`, `setor`, `nascimento`, `cpf_cnpj`, `email`, `cep`, `logradouro`, `numero`, `complemento`, `senha`, `diretorio`, `tipo`, `saldo`) VALUES
+('testandpa', 'servicos', '0000-00-00', '06.057.223/000', 'varej@emal.com', '78948-787', 'Rua VAVa', 456, '', '123', '', 'G', 0),
+('nome teste', NULL, '0000-00-00', '123.123.123-12', 'email@email.com', '12.123-123', 'rua teste', 123, 'c', '123', '', '', 0),
+('casa da rosquinha', 'alimentício', '0000-00-00', '13.929.711/000', 'cdr@email.com', '14807303', 'rua dos doces', 44, NULL, '123', '', 'L', 0),
+('nomedeteste', NULL, '0000-00-00', '217.399.058-65', 'eu@email.com', '17895-789', 'Rua nossa', 55, '', '123', '', 'U', 0),
+('imagem4', NULL, '0000-00-00', '293.542.720-37', 'ft4@email.com', '42787-557', 'rua da foto', 77, '', '123', 'img_usuarios/semfoto.jpg', 'U', 0),
+('Camiluausia', NULL, '0000-00-00', '306.824.977-54', 'auau@email.com', '15456-984', 'Rua aquela ', 11, '', '123', 'img_usuarios/1692043376.jpg', 'U', 0),
+('foto 10008', NULL, '0000-00-00', '441.570.961-34', 'foto1000@email.com', '78564-687', 'rua do nunes', 11, 'kkkkk', '1234', 'img_usuarios/1688351060.jpg', 'U', 0),
+('agora sim tem nome', NULL, '0000-00-00', '443.065.372-00', 'foto2@email.com', '84645-259', 'rua da fotokkkk', 89, '', '123', 'img_usuarios/semfoto.jpg', 'U', 0),
+('Magazine Luiza', 'varejo', '0000-00-00', '47.960.950/000', 'magazinelu@email.com', '89654-231', 'Rua do MagaLu', 888, '', '123', '', 'M', 0),
+('Laura Sthefany Colombo', NULL, '0000-00-00', '503.621.538-92', 'laurasthefanycolombo@gmail.com', '14807-302', 'Rua Paulino Leite', 166, '', '123', '', 'U', 0),
+('minha empresa de saude', 'saude', '0000-00-00', '53.141.916/000', 'saude@email.com', '58954-742', 'rua da saude', 21, '', '123', '', 'L', 0),
+('ultimo teste', NULL, '0000-00-00', '617.816.524-22', 'ultimo@email.com', '57896-355', 'rua ultima', 2, '', '123123', 'img_usuarios/semfoto.jpg', 'U', 0),
+('minha empresa tech', 'tecnologia', '0000-00-00', '63.319.178/000', 'tech@email.com', '78562-325', 'rua da tech', 778, '', '123', '', 'L', 0),
+('teste sem fotot', NULL, '0000-00-00', '757.003.465-16', 'semfoto@eemail.com', '12354-965', 'rua sem foto', 22, '', '123123', '/semfoto.jpg', 'U', 0),
+('teste de foto', NULL, '0000-00-00', '784.300.686-94', 'foto@email.com', '45621-568', 'rua da foto', 55, '4', '123', 'img_usuarios/semfoto.jpg', 'U', 0),
+('novo', NULL, '0000-00-00', '78978978978', 'novo@gmail.com', '12123456', 'rua nova', 1, '', '123', '', '', 0),
+('administrador', NULL, '0000-00-00', '848.457.880-12', 'adm@email.com', '14807302', 'rua do administrador', 55, NULL, '123', '', 'A', 0),
+('foto 3 T-T', NULL, '0000-00-00', '917.100.334-79', 'foto3@email.com', '84654-565', 'rua da foto', 54, '', '123', 'img_usuarios/semfoto.jpg', 'U', 0);
 
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --
@@ -308,6 +315,7 @@ INSERT INTO `usuario` (`nome`, `setor`, `cpf_cnpj`, `email`, `cep`, `logradouro`
 --
 ALTER TABLE `marca`
   ADD CONSTRAINT `marca_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categoria` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
