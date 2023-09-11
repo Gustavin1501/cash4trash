@@ -37,7 +37,7 @@
     <section class="section">
       <div class="section__container">
       <div class="image">
-          <img src="<?php echo $diretorio; ?>" alt="perfil" draggable="false"><!--tem que pegar a foto do usuario-->
+          <img src="<?php echo $diretorio; ?>" alt="Foto de perfil." draggable="false"><!--tem que pegar a foto do usuario-->
           <div class="round">
             <input type="file">
             <i class="fa fa-camera"  style = "color: #fff;"></i>
