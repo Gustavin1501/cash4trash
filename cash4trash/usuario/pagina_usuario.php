@@ -62,25 +62,44 @@
             <div id="myModal" class="modal">
               <div class="modal-content">
                 <span class="close">&times;</span>
-                <h2>Editar dados do perfil</h2>
+                <h2 class="editar_title">Editar dados do perfil</h2>
                 <form class="form_edit" id="e-form" method="post" action="edit_usuario.php">
                 <div class="column">
-                    <input class="form__input" type="text" name="nome" id="nome" value="<?php echo $_SESSION['nome']; ?>" required/>
-                    <input class="form__input" type="text" name="nasc" id="nasc" value="<?php echo $nascimento; ?>" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}"required/>
-                    <input class="form__input" type="email" name="email" id="email" value="<?php echo $_SESSION['email']; ?>" required/>
-                    <span id="emailErro" class="erro"></span>
-                    <input class="form__input" type="text" name="cpf" id="cpf" value="<?php echo $cpf; ?>" required/>
-                    <span id="cpfErro" class="erro"></span>
-                    <input class="form__input" type="text" name="logradouro" id="logradouro" value="<?php echo $_SESSION['endereco'][0]; ?>" required/>
-                    <input class="form__input" type="text" name="cep" id="cep" value="<?php echo $cep; ?>" required/>
-                    <span id="cepErro" class="erro"></span>
-                    <input class="form__input" type="number" name="numero" id="numero" value="<?php echo $_SESSION['endereco'][1]; ?>" required/>
-                    <input class="form__input" type="text" name="complemento" id="complemento" placeholder="Complemento" value="<?php echo $complemento; ?>" />
-                    <input class="form__input" type="password" name="senha" id="senha" placeholder="Senha atual" required/>
-                    <input class="form__input" type="password" name="novasenha" id="novasenha" placeholder="Nova senha" />
+                  <label for="nome">Nome de usuário</label>
+                  <input class="form__input" type="text" name="nome" id="nome" value="<?php echo $_SESSION['nome']; ?>" required/>
+
+                  <label for="nasc">Data de nascimento (ano/mês/dia)</label>
+                  <input class="form__input" type="text" name="nasc" id="nasc" value="<?php echo $nascimento; ?>" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}"required/>
+
+                  <label for="email">Email</label>
+                  <input class="form__input" type="email" name="email" id="email" value="<?php echo $_SESSION['email']; ?>" required/>
+                  <span id="emailErro" class="erro"></span>
+
+                  <label for="cpf">CPF</label>
+                  <input class="form__input" type="text" name="cpf" id="cpf" value="<?php echo $cpf; ?>" required/>
+                  <span id="cpfErro" class="erro"></span>
+
+                  <label for="cep">CEP</label>
+                  <input class="form__input" type="text" name="cep" id="cep" value="<?php echo $cep; ?>" required/>
+                  <span id="cepErro" class="erro"></span>
+
+                  <label for="logradouro">Logradouro</label>
+                  <input class="form__input" type="text" name="logradouro" id="logradouro" value="<?php echo $_SESSION['endereco'][0]; ?>" required/>
+
+                  <label for="numero">Número do endereço</label>
+                  <input class="form__input" type="number" name="numero" id="numero" value="<?php echo $_SESSION['endereco'][1]; ?>" required/>
+
+                  <label for="complemento">Complemento</label>
+                  <input class="form__input" type="text" name="complemento" id="complemento" placeholder="Complemento" value="<?php echo $complemento; ?>" />
+
+                  <label for="novasenha">Mudar senha:</label>
+                  <input class="form__input" size="20" type="password" name="novasenha" id="novasenha" placeholder="Nova senha" />
+
+                  <label for="senha">Digite a senha atual (Obrigatório):</label>
+                  <input class="form__input" type="password" name="senha" id="senha" placeholder="Senha atual" required/>
                     <br><br>
                     <div class="espace">
-                    <button class="form__button button submit" id="btnEditar" type="submit">Enviar</button>
+                    <button class="form__button button submit" id="btnEditar" type="submit">ENVIAR</button>
                     </div>
                 </div>
               </div>	
