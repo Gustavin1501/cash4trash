@@ -23,7 +23,7 @@
     <ul>
         <li><a href="botaolotes.php">Gerar Lotes</a></li>
         <li><a href="melhores.php">Definir melhores lotes</a></li>
-        
+        <li><a href="enviaemail.php">Enviar e-mail aos contemplados</a></li>
     </ul>
     
 </body>
