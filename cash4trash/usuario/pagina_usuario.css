@@ -121,15 +121,18 @@ a {
   margin-bottom: 20px;
 }
 
+.editar_title{
+  color:#F4743B;
+}
+
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
   left: 0;
   top: 0;
+  overflow: scroll;
   width: 100%;
   height: 100%;
-  overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -138,7 +141,25 @@ a {
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  border-radius: 5px;
+  width: 20%;
+}
+
+.form__input{
+  width: 100%;
+	height: 4vh;
+  border-radius: 4px;
+  outline: none;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  margin-bottom: 20px;
+  background-color: #EBEEEE;
+  font-size: medium;
+}
+
+label{
+  margin-top: 5px;
 }
 
 .close {
@@ -151,9 +172,20 @@ a {
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #F4743B;
   text-decoration: none;
   cursor: pointer;
+}
+
+.form__button{
+  background-color: white;
+  margin-top: -15px;
+  cursor: pointer;
+}
+
+.form__button:hover{
+  background-color: #f48a5d;
+  color: white;
 }
 
 @media (width < 785px) {

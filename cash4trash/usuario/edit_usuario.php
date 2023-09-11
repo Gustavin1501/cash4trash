@@ -51,21 +51,22 @@
                 $_SESSION['endereco'][0] = $logradouro;
                 $_SESSION['endereco'][1] = $numero;
 
-                echo "Atualização realizada com sucesso.";
-
                 header("location: pagina_usuario.php");
 
             } else {
-                echo "Problema na comunicação com o BD: " . mysqli_stmt_error($stmt);
+                header("Location: ../cadastros/cadastro_erro.html");
+                //echo "Problema na comunicação com o BD: " . mysqli_stmt_error($stmt);
             }
     
             mysqli_stmt_close($stmt);
             mysqli_close($conexao);
         } else {
-            echo "CPF já existe no banco.";
+            header("Location: ../cadastros/cadastro_existente.html");
+            //echo "CPF já existe no banco.";
         }
     } else {
-        echo "Senha incorreta.";
+        header("Location: ../cadastros/cadastro_erro.html");
+        //echo "Senha incorreta.";
     }
     
 
@@ -99,12 +100,14 @@
 				}
 			}
 			else {
-				echo "Problema na comunicação com o BD: " . mysqli_error($conexao);
+                header("Location: cadastros/cadastro_erro.html");
+				//echo "Problema na comunicação com o BD: " . mysqli_error($conexao);
 			}
 			mysqli_close($conexao);
 		}
 		else {
-			echo "Problema na conexão: " . mysqli_connect_error();
+            header("Location: cadastros/cadastro_erro.html");
+			//echo "Problema na conexão: " . mysqli_connect_error();
 		}
     }
 
@@ -133,10 +136,9 @@
             }
         }
         else {
-            echo "Problema na comunicação com o BD: " . mysqli_error($conexao);
+            header("Location: cadastros/cadastro_erro.html");
+            //echo "Problema na comunicação com o BD: " . mysqli_error($conexao);
             return false;
         }   
     }
-
-
 ?>
