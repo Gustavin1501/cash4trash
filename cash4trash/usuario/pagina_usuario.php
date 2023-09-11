@@ -8,7 +8,6 @@
 
 <body>
 <?php
-//teste
   include_once("../include/navbar.php");
 
   require "../index/conexao.php";
