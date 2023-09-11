@@ -14,25 +14,34 @@ while ($nomeLote !== "0") {
 
     $descricao = pegaDescricao($categoria, $qtd, $conexao);
 
-    $valor = pegaValor($categoria, $conexao);
-    $inicio = time();
+    //var_dump($qtd);
 
-    $duracao = pegaDuracao($categoria, $conexao);
+    if ($descricao != "0"){
+        $valor = pegaValor($categoria, $conexao);
+        $inicio = time();
 
-    $fim = $inicio + $duracao * 60 * 60 * 24;
-    // Envia dados para tabela lote
-    if (criaLote($nomeLote, $valor, $qtd, $fim, $descricao, $conexao)) {
-        $gerados++;
-    } else {
-        echo "Erro ao criar lote.";
+        $duracao = pegaDuracao($categoria, $conexao);
+
+        $fim = $inicio + $duracao * 60 * 60 * 24;
+        // Envia dados para tabela lote
+        if (criaLote($nomeLote, $valor, $qtd, $fim, $descricao, $conexao)) {
+            $gerados++;
+
+            $idLote = pegaIdLote($conexao);
+
+            // Atualiza tabela lixo
+            atualizaLixo($categoria, $qtd, $idLote, $conexao);
+
+            $nomeLote = pegaDados($categoria, $qtd, $conexao);
+        } else {
+            echo "Erro ao criar lote.";
+        }
+
+
+    }else{
+        echo "Erro ao definir descrição do lote";
     }
-
-    $idLote = pegaIdLote($conexao);
-
-    // Atualiza tabela lixo
-    atualizaLixo($categoria, $qtd, $idLote, $conexao);
-
-    $nomeLote = pegaDados($categoria, $qtd, $conexao);
+    
 }
 
 echo "Quantidade de Lotes Gerados: " . $gerados;
@@ -73,6 +82,7 @@ function pegaDados($categoria, $qtd, $conexao) {
                 } else {
                     // Número de elementos retornados é inferior a $qtd
                     $dadosConcatenados = "0";
+                    
                     
                 }
         }
@@ -176,8 +186,7 @@ function pegaDuracao($categoria, $conexao){
 function pegaDescricao($categoria, $qtd, $conexao) {
     $sql = "SELECT `marca`, `nome`, `descricao` FROM `lixo` WHERE `categoria` = ? AND `statu` = 1 ORDER BY `marca`, `nome`, `id` LIMIT ?";
 
-    echo "SELECT `marca`, `nome`, `descricao` FROM `lixo` WHERE `categoria` = $categoria ";
-    
+    //var_dump($sql);
     $stmt = mysqli_prepare($conexao, $sql);
 
     if ($stmt) {
@@ -188,18 +197,19 @@ function pegaDescricao($categoria, $qtd, $conexao) {
                 $resultado = mysqli_stmt_get_result($stmt);
                 $numLinhas = mysqli_num_rows($resultado);
                 $dadosConcatenados = "";
-
+                
                 if ($numLinhas == $qtd) {
                     while ($linha = mysqli_fetch_assoc($resultado)) {
                         $marca = $linha["marca"];
                         $nome = $linha["nome"];
                         $descricao = $marca ." - ". $nome ." - ". $linha["descricao"] ."</br>";
-                        $dadosConcatenados += $descricao;
+                        $dadosConcatenados = $dadosConcatenados . $descricao;
+                        //var_dump($dadosConcatenados);
                     }
+                    
                 } else {
                     // Número de elementos retornados é inferior a $qtd
                     $dadosConcatenados = "0";
-                    
                 }
         }
 

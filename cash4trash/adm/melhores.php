@@ -104,7 +104,7 @@
             <div id="container">
 
             <?php
-                $consulta_lote = select_query("select id,valor_atual, nome from lote where statu='1'", $conexao);
+                $consulta_lote = select_query("select id,valor_atual, nome, melhores from lote where statu='1'", $conexao);
                 $i=0;
                 while ($linha = mysqli_fetch_assoc($consulta_lote)) {
                     $id=$linha["id"];
@@ -122,7 +122,13 @@
                         </div>
                         <div>
                             <label class="switch">
-                            <input type="checkbox" id="'.$id.'" name="opcao'.$i.'" value="'.$id.'" >
+                            <input type="checkbox" id="'.$id.'" name="opcao'.$i.'" value="'.$id.'" ';
+
+                            if ($linha["melhores"]=="1"){
+                                echo " checked ";
+                            }
+
+                            echo'>
                             <div class="slider"></div>
                             </label>
                         </div>

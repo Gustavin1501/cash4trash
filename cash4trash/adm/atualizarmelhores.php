@@ -23,7 +23,8 @@ while (true) {
             
             if(isset($_POST["opcao".$i])){
                 $id = $_POST["opcao".$i];
-                $resultado = select_query("update lote set melhores = '1' where id ='". $id . "'", $conexao);
+                $resultado = select_query("update lote set melhores = '0'", $conexao);
+                $resultado2 = select_query("update lote set melhores = '1' where id ='". $id . "'", $conexao);
 
             }
         }
