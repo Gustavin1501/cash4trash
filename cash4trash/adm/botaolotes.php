@@ -6,7 +6,7 @@
     }
     
     require "../index/conexao.php";
-
+//oi oi
     $conexao = getConexao();
     function select_query($sql, $conexao){
 
