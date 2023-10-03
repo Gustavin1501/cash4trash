@@ -35,15 +35,17 @@
                 
     
                 if($funcionou) {
-                    echo "Usuário cadastrado com sucesso";
+                    header("location: cadastro_sucesso.html");
                 }
                 else {
-                    echo "Problema na comunicação com o BD: " . mysqli_stmt_error($stmt);
+                    header("location: cadastro_erro.html");
+                    //echo "Problema na comunicação com o BD: " . mysqli_stmt_error($stmt);
                 }
                 mysqli_stmt_close($stmt);
                 mysqli_close($conexao);
             }else{
-                echo "CNPJ ja existe no banco";
+                header("location: cadastro_existente.html");
+                //echo "CNPJ ja existe no banco";
             }
 
             
@@ -51,11 +53,13 @@
 			
 		}
 		else {
-			echo "Problema na conexão: " . mysqli_connect_error();
+            header("location: cadastro_erro.html");
+			//echo "Problema na conexão: " . mysqli_connect_error();
 		}
 	}
 	else {
-		echo "vazio";
+        header("location: cadastro_erro.html");
+		//echo "vazio";
 	}
 
     function existe($cpf){
@@ -81,8 +85,9 @@
             }
         }
         else {
-            echo "Problema na comunicação com o BD: " . mysqli_error($conexao);
-            return true;
+            header("location: cadastro_erro.html");
+            //echo "Problema na comunicação com o BD: " . mysqli_error($conexao);
+            //return true;
         }
         
         
