@@ -2,8 +2,8 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="pagina_usuario.css"/>
     <link rel="icon" type="image/x-icon" href="../imagens/favicon.png">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -34,15 +34,41 @@
     }
   
 ?>
-    <section class="section">
-      <div class="section__container">
-      <div class="image">
-          <img src="<?php echo $diretorio; ?>" alt="Foto de perfil." draggable="false"><!--tem que pegar a foto do usuario-->
-          <div class="round">
-            <input type="file">
-            <i class="fa fa-camera"  style = "color: #fff;"></i>
-          </div>
-      </div>
+      <div class="w-100 box">
+        <div class="w-100 box">
+            <form action="edit_foto.php" class="box" id="form-form" method="post" enctype="multipart/form-data">
+                <div class="image-upload box">
+                    <img id="imagepreview" src="<?php echo $diretorio; ?>" alt="Foto de perfil." draggable="false" class="w-100 h-100">
+                    <input type="file" id="imagefield" onchange="previewImage(event)">
+                </div>
+                <button id="submitButton" style="display: none;">Enviar</button>
+
+                 <script>
+                function previewImage(event) {
+                  const imagefield = document.getElementById('imagefield');
+                  const submitButton = document.getElementById('submitButton');
+                  const imagepreview = document.getElementById('imagepreview');
+                    
+                  if (imagefield.files.length > 0) {
+                    const selectedImage = imagefield.files[0];
+                    const reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        imagepreview.src = e.target.result;
+                        imagepreview.style.display = 'block';
+                    };
+
+                        reader.readAsDataURL(selectedImage);
+                        submitButton.style.display = 'block';
+                    } else {
+                        imagepreview.style.display = 'none';
+                        submitButton.style.display = 'none';
+                    }
+                }
+            </script>
+            </form>
+        </div>
+    </div>
         <div class="content">
           <p class="subtitle">OLÁ,</p>
           <h1 class="title">
@@ -65,6 +91,7 @@
                 <h2 class="editar_title">Editar dados do perfil</h2>
                 <form class="form_edit" id="e-form" method="post" action="edit_usuario.php">
                 <div class="column">
+
                   <label for="nome">Nome de usuário</label>
                   <input class="form__input" type="text" name="nome" id="nome" value="<?php echo $_SESSION['nome']; ?>" required/>
 
@@ -112,7 +139,6 @@
       </div>
     </div>
   </div>
-</section>
 </body>
 
 <script>

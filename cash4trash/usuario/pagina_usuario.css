@@ -7,7 +7,7 @@
   --max-width: 1200px;
 }
 
-* {
+body{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -26,10 +26,12 @@ a {
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 10%;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .subtitle {
@@ -55,6 +57,7 @@ a {
   line-height: 1.5rem;
   color: var(--text-light);
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .action__btns {
@@ -93,19 +96,55 @@ a {
   color: #ffffff;
 }
 
-.image {
-  display: grid;
-  place-items: center;
+.box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.image img{
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  border-color: #ca8a04;
-  border-width: 2px;
-  object-fit: cover;
-  margin-bottom: 50px;
+.w-100{
+  width: 100%;
+}
+
+.h-100{
+  height: 100%;
+}
+
+.m-2{
+  margin: 12px;
+}
+
+.p-4{
+  padding: 24px;
+}
+
+/**/
+#form-form{
+  & .image-upload{
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 100%;
+      border: 5px solid #FD7D00;
+      box-shadow: 2px 3px 12px #00000060;
+      overflow: hidden;
+      cursor: pointer;
+  }
+
+  & .image-upload img{
+      object-fit: cover;
+  }
+
+  & #imagefield{
+      position: absolute;
+      margin: 0 auto;
+      width: 100px;
+      height: 100px;
+      opacity: 0;
+      cursor: pointer;
+
+  }
 }
 
 .logout{
