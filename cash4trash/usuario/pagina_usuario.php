@@ -39,12 +39,12 @@
             <form action="edit_foto.php" class="box" id="form-form" method="post" enctype="multipart/form-data">
                 <div class="image-upload box">
                     <img id="imagepreview" src="<?php echo $diretorio; ?>" alt="Foto de perfil." draggable="false" class="w-100 h-100">
-                    <input type="file" id="imagefield" onchange="previewImage(event)">
+                    <input type="file" id="imagefield" onchange="previewImage(event)" name="imagefield">
                 </div>
-                <button id="submitButton" style="display: none;">Enviar</button>
+                <button type="submit" id="submitButton" style="display: none;">Enviar</button>
 
                  <script>
-                function previewImage(event) {
+                  function previewImage(event) {
                   const imagefield = document.getElementById('imagefield');
                   const submitButton = document.getElementById('submitButton');
                   const imagepreview = document.getElementById('imagepreview');
@@ -142,7 +142,7 @@
 </body>
 
 <script>
-  var openModalBtn = document.getElementById("openModal");
+var openModalBtn = document.getElementById("openModal");
 var modal = document.getElementById("myModal");
 var closeModalBtn = document.getElementsByClassName("close")[0];
 

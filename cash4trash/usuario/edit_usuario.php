@@ -25,7 +25,7 @@
 
     if (senhacerta($_SESSION["email"], $senha, $conexao)) {
         // Verificar se o CPF já existe no banco de dados
-        if (cpfvalido($cpf, $email, $conexao)) {
+        //if (cpfvalido($cpf, $email, $conexao)) {
             // Conectar ao banco de dados (substitua "nome_do_banco", "nome_de_usuario" e "senha_do_usuario" pelas suas próprias informações)
             
             // Verificar se a conexão foi estabelecida corretamente
@@ -60,10 +60,10 @@
     
             mysqli_stmt_close($stmt);
             mysqli_close($conexao);
-        } else {
-            header("Location: ../cadastros/cadastro_existente.html");
+       //} else {
+            //header("Location: ../cadastros/cadastro_existente.html");
             //echo "CPF já existe no banco.";
-        }
+        //}
     } else {
         header("Location: ../cadastros/cadastro_erro.html");
         //echo "Senha incorreta.";
