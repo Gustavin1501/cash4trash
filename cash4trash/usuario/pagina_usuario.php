@@ -41,7 +41,7 @@
                     <img id="imagepreview" src="<?php echo $diretorio; ?>" alt="Foto de perfil." draggable="false" class="w-100 h-100">
                     <input type="file" id="imagefield" onchange="previewImage(event)" name="imagefield">
                 </div>
-                <button type="submit" id="submitButton" style="display: none;">Enviar</button>
+                <button type="submit" id="submitButton" style="display: none;">Mudar foto de perfil</button>
 
                  <script>
                   function previewImage(event) {

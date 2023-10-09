@@ -35,6 +35,7 @@ if(isset($_FILES["imagefield"])) {
 
             if (mysqli_query($conexao, $sql)) {
                 echo "Registro atualizado com sucesso!";
+                header("location:pagina_usuario.php");
             } else {
                 echo "Erro ao atualizar o registro: " . mysqli_error($conexao);
             }
