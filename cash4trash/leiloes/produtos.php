@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leilões</title>
+    <title>Cash4Trash</title>
     <link href="estilo.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
@@ -22,16 +22,9 @@
     <header>
         <div class="container">
             <div id="logo">
-                <a href="../index/index.php"><img src="../imagens/logo.svg" id="logo"> </a>
+                <a href="../index/index.php"><img src="../imagens/logo.svg" id="logo"></a>
             </div>
         </div>
-        <div id="divBusca">
-            <div id="divbar">
-                <input  id="search-bar" type="text" placeholder=" Pesquise pelo produto que procura">
-            </div>
-            <a href="#" id="divicon"> 
-                <div ><img id="search-icon" src="../imagens/search3.png"></div>
-            </a>
             
         </div>
     </header>
@@ -105,7 +98,7 @@
                         while ($linha = mysqli_fetch_assoc($consulta_lote)) {
                             $id=$linha["id"];
                             $consulta_lixo = select_query("select imagem from lixo where lote='". $id . "' order by lote limit 1", $conexao);
-                            while ($linha2 = mysqli_fetch_assoc($consulta_lixo)) {
+                             while ($linha2 = mysqli_fetch_assoc($consulta_lixo)) {
                                 echo '<div class="produto">
                                 <a href="produto.php?id='. $id .'"><img width="150px" src="../produto/'. $linha2["imagem"] .' ">
                                 <p class="nome-produto">'. $linha["nome"] .'</p>
@@ -198,14 +191,5 @@
 
         </div>
     </main>
-
-    <br>
-
-    <footer>
-        <center>
-            Copyright © 2022 BloomyBits. Todos os direitos reservados. 
-        </center>
-    </footer>
-
 </body>
 </html>
