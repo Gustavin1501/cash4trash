@@ -1,6 +1,4 @@
 <?php
-while (true) {
-// Lógica da tarefa que verifica se os leilões expiraram e atualiza o banco de dados
 
     require "../index/conexao.php";
 
@@ -19,25 +17,19 @@ while (true) {
     $qtd = $_POST["valor_i"];
     //echo $qtd;
     if ($qtd!= 0){
+        $resultado = select_query("update lote set melhores = '0'", $conexao);
         for ($i=1; $i<=$qtd; $i++){
             
             if(isset($_POST["opcao".$i])){
                 $id = $_POST["opcao".$i];
-                $resultado = select_query("update lote set melhores = '0'", $conexao);
+                
                 $resultado2 = select_query("update lote set melhores = '1' where id ='". $id . "'", $conexao);
 
             }
         }
     }
+    mysqli_close($conexao);
+    header("location:melhores.php");
 
-
-
-// Espere por um intervalo de tempo (por exemplo, 5 minutos) antes de verificar novamente
-    sleep(300); // 300 segundos = 5 minutos
-}
-
-
-    
-    
 
 ?>

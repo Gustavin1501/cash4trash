@@ -50,15 +50,18 @@
                 $hiddens = "";
                 $id = 0;
                 while ($linha = mysqli_fetch_assoc($resultado)) {
-                    $id++;
                     $resultado2 = select_query("select usuario from lance where lote='".$linha["id"]."' order by tempo desc limit 1", $conexao);
                     $linha2 = mysqli_fetch_assoc($resultado2);
-                    $hiddens = $hiddens . ' <input type="hidden" name="'.$id.'" value="'.$linha2["usuario"].'*'.$linha["id"].'">';
-                    //echo $resultado2;
+                    if ($linha2["usuario"]!= null){
+                        $id++;
+                        $hiddens = $hiddens . ' <input type="hidden" name="'.$id.'" value="'.$linha2["usuario"].'*'.$linha["id"].'">';
+                    }
+                    
                 }
                 echo $id . "</h1>";
                 echo  "<input type='hidden' name='quantidade' value='".$id ."'>";
                 echo $hiddens;
+                mysqli_close($conexao);
 
             ?>
 

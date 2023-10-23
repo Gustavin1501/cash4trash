@@ -1,4 +1,8 @@
 <?php
+
+require "../index/conexao.php";
+$conexao = getConexao();
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -17,7 +21,7 @@ $mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->Username = 'c4t2023@gmail.com'; // Seu e-mail
-$mail->Password = 'C@LuL@2023'; // Sua senha
+$mail->Password = 'aote klpl hnoy kmvb'; // Sua senha
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 $mail->Port = 587;
 
@@ -39,15 +43,19 @@ for ($id = 1; $id <= $quantidade; $id++) {
     
     // Configura o destinatário e o conteúdo do e-mail
     $mail->addAddress($emailUsuario);
-    $mail->Subject = 'Parabéns! Você foi contemplado em um leilão.';
+    $mail->Subject = 'Parabens! Voce foi contemplado em um leilão.';
     $mail->Body = 'Você foi contemplado em um leilão. Clique no link abaixo para conferir o leilão:<br><a href="' . $linkLeilao . '">Clique aqui</a>';
 
     if ($mail->send()) {
         echo "E-mail enviado para $emailUsuario\n";
 
+        
+
         // Após enviar com sucesso, atualize o status do lote para '3'
         $atualizarStatus = "UPDATE lote SET statu = '3' WHERE id = '$idLote'";
         $resultadoUpdate = mysqli_query($conexao, $atualizarStatus);
+       
+        
 
         if (!$resultadoUpdate) {
             echo "Erro ao atualizar o status do lote: " . mysqli_error($conexao) . "\n";
@@ -57,6 +65,7 @@ for ($id = 1; $id <= $quantidade; $id++) {
     }
 
     $mail->clearAddresses(); // Limpa os destinatários para o próximo e-mail
+    
 }
 
 
@@ -64,4 +73,6 @@ for ($id = 1; $id <= $quantidade; $id++) {
 // Redirecione para a página anterior ou faça qualquer outra ação necessária após o envio dos e-mails
 //header("Location: enviaemail.php");
 //exit;
+
+mysqli_close($conexao);
 ?>
