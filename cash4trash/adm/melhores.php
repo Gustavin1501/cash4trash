@@ -69,11 +69,7 @@
 
 <body>
     <div class="form sign-in-container">
-        <header>
-        <?php
-            include_once("../include/navbar.php");
-        ?>
-        </header>
+        
 
         <?php
             /*if ($_SESSION["tipo"]=="A"){
@@ -150,6 +146,8 @@
         
         
     </div>
+
+    <a href="index.php">Voltar</a>
     <script src="js/principal.js"></script>
     <noscript>Seu navegador não suporta código em JavaScript</noscript>
 </body>
