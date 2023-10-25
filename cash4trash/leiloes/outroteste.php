@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +9,47 @@
     <title>Cash4Trash</title>    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/outroteste.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="../index/index.php"></a><img src="../imagens/logowhite.png" class="logoimg">
-        </div>
-    </header>
+<header>
+        <nav class="navigationc4t">
+          <a href="../index/index.php" ><img src="../imagens/logo.jpg" draggable="false" id="logo" class="cash4trash"></a>
+          <ul class="nav-menuc4t">
+            <li class="nav-itemc4t"><a href="../produto/cadastro_produto.php">Anunciar</a></li>
+            <li class="nav-itemc4t"><a href="../marketplace/mkplace.html">Marketplace</a></li>
+            <li class="nav-itemc4t"><a href="#">Contato</a></li>
+            <?php
+              if(!isset($_SESSION["nome"])){ //SE ESTIVER DESLOGADO 
+                  echo "<a href='../login/login.html'><i class='bx bx-user'></i></a>";
+              }else{ //SE ESTIVER LOGADO
+                  echo "<a href='../usuario/pagina_usuario.php'><i class='bx bx-user'></i></a>";
+                  echo"
+                      <a href='../usuario/pagina_usuario.php' <p class='olaa'>{$_SESSION['nome']}</p></a>";
+              }
+              ?>
+          </ul>
+          </ul> 
+            
+            
+          <div class="menuc4t">
+            <span class="barc4t"></span>
+            <span class="barc4t"></span>
+            <span class="barc4t"></span>
+          </div>
+        </nav>
+    </header> 
+    <script>
+            const menuc4t = document.querySelector('.menuc4t');
+            const NavMenuc4t = document.querySelector('.nav-menuc4t');
+
+            menuc4t.addEventListener('click', () => {
+                menuc4t.classList.toggle('ativo');
+                NavMenuc4t.classList.toggle('ativo');
+            })
+    </script>
+
 
     <section class="section">
 <!--PRÓXIMOS AO SEU ENDEREÇO-->
