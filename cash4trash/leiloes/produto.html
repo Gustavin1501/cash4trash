@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cash4Trash</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="css/estilo-produto.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
     <script>
         // Set the date we're counting down to
@@ -46,10 +48,6 @@
             <div id="logo">
                 <a href="../index/index.html"><img src="../imagens/logo.svg" id="logo"> </a>
             </div>
-            <div id="bloco-login">
-                <a href="../login/login.html"><h4 id="login">LOGIN</h4> </a>
-                <img src="../imagens/user.svg" id="user">
-            </div>
         </div>
         <nav id="nav">
             <a href="../index/index.html" id="home">
@@ -63,12 +61,21 @@
             </a>
         </nav>
     </header>
-    <main>
-        <div class="principal">
-            <div class="produto-principal">
-                <div class="imagem-produto">
-                    <img src="../imagens/produto.svg" id="imagem-produto">
+<main>
+    <div class="principal">
+        <div class="produto-principal">
+            <div class="imagem-produto">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="../imagens/produto.svg" id="imagem-produto"></div>
+                        <div class="swiper-slide"><img src="../imagens/produto.svg" id="imagem-produto"></div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
+                </swiper-container>
+            </div>
                 <div class="infos-produto">
                     <div class="tag-categoria">
                         Computadores e acessórios
@@ -108,7 +115,6 @@
                 <p>- Construído para encaixar em sua rotina e projetado com atenção aos detalhes, o samsung notebook flash é o notebook com um senso único de estilo </p>
                 <p>- *O plano de implementação de upgrade do Windows 11 ainda está sendo finalizado, mas está programado para começar no final de 2021 e continuar em 2022. O tempo específico varia de acordo com o dispositivo. </p>
             </div>
-        </div>
         <div class="sugestoes">
             <hr class="linha">
 
@@ -120,31 +126,76 @@
                 </div>
                 <div class="produtos">
 
-                    <div class="produto">
-                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
-                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
-                        <p class="preco-produto">R$32,99</p></a>
-                    </div>
-                    <div class="produto">
-                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
-                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
-                        <p class="preco-produto">R$32,99</p></a>
-                    </div>
-                    <div class="produto">
-                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
-                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
-                        <p class="preco-produto">R$32,99</p></a>
-                    </div>
-                    <div class="produto">
-                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
-                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
-                        <p class="preco-produto">R$32,99</p></a>
-                    </div>
-                    <div class="produto">
-                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg">
-                        <p class="nome-produto">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</p>
-                        <p class="preco-produto">R$32,99</p></a>
-                    </div>
+                    <div class="swiper"> <!--swiper-->
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                              <div class="card">
+                                <div class="card_top">
+                                    <!--<div class="produto">-->
+                                        <a href="produto.html"><img width="150px" src="../imagens/produto.svg"></a>
+                                </div>
+                                        <div class="card_body">
+                                            <h3 class="card_title">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</h3>
+                                            <p class="card_price">R$ 32,99</p>
+                                        </div>
+                                    </div>
+                            </div>
+                        
+                            <div class="swiper-slide">
+                                <div class="card">
+                                  <div class="card_top">
+                                      <!--<div class="produto">-->
+                                          <a href="produto.html"><img width="150px" src="../imagens/produto.svg"></a>
+                                  </div>
+                                          <div class="card_body">
+                                              <h3 class="card_title">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</h3>
+                                              <p class="card_price">R$ 32,99</p>
+                                          </div>
+                                      </div>
+                              </div>
+
+                              <div class="swiper-slide">
+                                <div class="card">
+                                  <div class="card_top">
+                                      <!--<div class="produto">-->
+                                          <a href="produto.html"><img width="150px" src="../imagens/produto.svg"></a>
+                                  </div>
+                                          <div class="card_body">
+                                              <h3 class="card_title">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</h3>
+                                              <p class="card_price">R$ 32,99</p>
+                                          </div>
+                                      </div>
+                              </div>
+
+                              <div class="swiper-slide">
+                                <div class="card">
+                                  <div class="card_top">
+                                      <!--<div class="produto">-->
+                                          <a href="produto.html"><img width="150px" src="../imagens/produto.svg"></a>
+                                  </div>
+                                          <div class="card_body">
+                                              <h3 class="card_title">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</h3>
+                                              <p class="card_price">R$ 32,99</p>
+                                          </div>
+                                      </div>
+                              </div>
+
+                                <div class="swiper-slide">
+                                <div class="card">
+                                  <div class="card_top">
+                                      <!--<div class="produto">-->
+                                          <a href="produto.html"><img width="150px" src="../imagens/produto.svg"></a>
+                                  </div>
+                                          <div class="card_body">
+                                              <h3 class="card_title">Notebook Samsung Flash F30, 4GB RAM, 64GB SSD...</h3>
+                                              <p class="card_price">R$ 32,99</p>
+                                          </div>
+                                      </div>
+                              </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                </div>
 
                 </div>
             </div>
@@ -196,5 +247,7 @@
         </center>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="js/produto.js"></script>
 </body>
 </html>

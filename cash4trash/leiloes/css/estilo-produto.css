@@ -1,22 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+
 /*header*/
 
 
 #logo{
     width: 238px;
     height: 27px;
-}
-
-
-#login{
-    font-weight: 600;
-    font-size: 17px;
-    color: #FBFBFB;
-}
-
-#bloco-login{
-    display: flex;
-    flex-direction: row;
-    padding-right: 2%;
+    justify-content: center;
 }
 
 .container{
@@ -30,13 +21,11 @@
 
 header{
     background: #93B5B4;
-    
 }
 
 
 #nav{
     display: flex;
-    flex-direction: row;
     color: #FBFBFB;
     font-family: Poppins;
     font-weight: 500;
@@ -70,7 +59,6 @@ header{
 
 body{
     font-family: Poppins;
-
 }
 
 .produto-principal{
@@ -193,3 +181,19 @@ footer{
     color: #C25524;
     font-weight: 700;
 }
+
+/*swiper*/
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
