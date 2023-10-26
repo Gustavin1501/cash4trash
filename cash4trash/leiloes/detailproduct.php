@@ -18,6 +18,18 @@
             <img class="img-fluid w-100" src="../imagens/produto.svg" alt="Imagem 1">
 
             <div class="small-img-group"><!--talvez não use-->
+                <div class="small-img-col">
+                    <img src="../imagens/produto.svg" width="100%" class="small-img" alt="Imagem 1 pequena">
+                </div>
+                <div class="small-img-col">
+                    <img src="../imagens/produto.svg" width="100%" class="small-img" alt="Imagem 1 pequena">
+                </div>
+                <div class="small-img-col">
+                    <img src="../imagens/produto.svg" width="100%" class="small-img" alt="Imagem 1 pequena">
+                </div>
+                <div class="small-img-col">
+                    <img src="../imagens/produto.svg" width="100%" class="small-img" alt="Imagem 1 pequena">
+                </div>
             </div>
         </div>
     </section>
