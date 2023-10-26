@@ -49,7 +49,7 @@ session_start();
     display: none;
     }
 
-    img{
+    .img_logo{
         max-width: 100%;
         display: block;
         height: 7vmin;
@@ -178,7 +178,7 @@ session_start();
 <body>
     <header>
         <nav class="navigation">
-          <a href="../index/index.php" ><img src="../imagens/logo.jpg" draggable="false" id="logo"></a>
+          <a href="../index/index.php" ><img class="img_logo" src="../imagens/logo.jpg" draggable="false" id="logo"></a>
           <ul class="nav-menu">
             <li class="nav-item"><a href="../leiloes/produtos.php">Leilões</a></li>
             <li class="nav-item"><a href="../produto/cadastro_produto.php">Anunciar</a></li>
