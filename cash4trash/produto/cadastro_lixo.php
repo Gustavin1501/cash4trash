@@ -49,7 +49,7 @@ if (move_uploaded_file($file["tmp_name"], $dir . '/' . $nome_img)) {
         $funcionou = mysqli_stmt_execute($stmt); // Executar inserção
 
         if ($funcionou) {
-            header("location: sucesso_cad_lixo.html");
+            header("location: ../cadastros/cadastro_produto.html");
         } else {
             echo "Problema na comunicação com o BD: " . mysqli_stmt_error($stmt);
         }
