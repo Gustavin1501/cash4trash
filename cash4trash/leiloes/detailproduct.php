@@ -12,27 +12,110 @@
     include_once("../include/navbar.php");
 ?>
 
-    <section class="container sproduct my-5 pt-5">
+    <section class="container sproduct my-5 pt-2">
         <div class="row mt-5">
             <div class="col-lg-5 col-md-12 col-12">
-            <img class="img-fluid w-100" src="../imagens/produto.svg" alt="Imagem 1">
+            <img class="img-fluid w-100 pb-1" src="../imagens/produto.svg" id="MainImg" alt="Imagem 1">
 
             <div class="small-img-group"><!--talvez não use-->
                 <div class="small-img-col">
                     <img src="../imagens/produto.svg" width="100%" class="small-img" alt="Imagem 1 pequena">
                 </div>
                 <div class="small-img-col">
-                    <img src="../imagens/produto.svg" width="100%" class="small-img" alt="Imagem 1 pequena">
+                    <img src="../imagens/anunciar.svg" width="100%" class="small-img" alt="Imagem 1 pequena">
                 </div>
                 <div class="small-img-col">
-                    <img src="../imagens/produto.svg" width="100%" class="small-img" alt="Imagem 1 pequena">
+                    <img src="../imagens/desenho.png" width="100%" class="small-img" alt="Imagem 1 pequena">
                 </div>
                 <div class="small-img-col">
-                    <img src="../imagens/produto.svg" width="100%" class="small-img" alt="Imagem 1 pequena">
+                    <img src="../imagens/leiloes.svg" width="100%" class="small-img" alt="Imagem 1 pequena">
                 </div>
+            </div>
+        </div>
+
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="lance">
+                    <h3 class="py-4">Leilão</h3>
+                    <h2>R$100</h2>
+                    <button type="button" class="lance-button">+1</button>
+                    <button type="button" class="lance-button">+3</button>
+                    <button type="button" class="lance-button">+5</button>
+                    <input  id="lance-input" type="number" placeholder="Personalizar oferta">
+                </div>
+                <button class="buy-btn mt-5">LANÇAR</button>
+                <h4 class="mt-5 mb-3">Descrição</h4>
+                <span>Upgrade gratuito para o Windows 11 quando disponível. Conferir O samsung notebook flash é um dispositivo de estilo único que dá um up no seu look, esteja em suas mãos ou na sua mesa; construído para encaixar em sua rotina e projetado com atenção aos detalhes. Monte o seu look com o notebook flash</span>
             </div>
         </div>
     </section>
 
+    <script>
+       var MainImg = document.getElementById('MainImg');
+       var smallimg = document.getElementsByClassName('small-img');
+
+       smallimg[0].onclick = function(){
+        MainImg.src = smallimg[0].src;
+       }
+
+       smallimg[1].onclick = function(){
+        MainImg.src = smallimg[1].src;
+       }
+
+       smallimg[2].onclick = function(){
+        MainImg.src = smallimg[2].src;
+       }
+
+       smallimg[3].onclick = function(){
+        MainImg.src = smallimg[3].src;
+       }
+
+       smallimg[4].onclick = function(){
+        MainImg.src = smallimg[4].src;
+       }
+
+       smallimg[5].onclick = function(){
+        MainImg.src = smallimg[5].src;
+       }
+
+       smallimg[6].onclick = function(){
+        MainImg.src = smallimg[6].src;
+       }
+
+       smallimg[7].onclick = function(){
+        MainImg.src = smallimg[7].src;
+       }
+
+       smallimg[8].onclick = function(){
+        MainImg.src = smallimg[8].src;
+       }
+
+       smallimg[9].onclick = function(){
+        MainImg.src = smallimg[9].src;
+       }
+
+       smallimg[10].onclick = function(){
+        MainImg.src = smallimg[10].src;
+       }
+
+       smallimg[11].onclick = function(){
+        MainImg.src = smallimg[11].src;
+       }
+
+       smallimg[12].onclick = function(){
+        MainImg.src = smallimg[12].src;
+       }
+
+       smallimg[13].onclick = function(){
+        MainImg.src = smallimg[13].src;
+       }
+
+       smallimg[14].onclick = function(){
+        MainImg.src = smallimg[14].src;
+       }
+
+       smallimg[15].onclick = function(){
+        MainImg.src = smallimg[15].src;
+       }
+    </script>
 </body>
-</html>
+</htm
