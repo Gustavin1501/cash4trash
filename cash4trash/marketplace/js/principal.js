@@ -17,7 +17,7 @@ window.onload = function() {
         xhttp.onreadystatechange = function() {
             if(xhttp.readyState == 4 && xhttp.status == 200) {
                 let resposta = xhttp.responseText;
-                //console.log(resposta);
+                console.log(resposta);
                 let dados = JSON.parse(resposta);
                 if(!("erro" in dados)) {
                     let select = document.getElementById("marca");
@@ -29,19 +29,27 @@ window.onload = function() {
     
 
     function atualizarSelect(dados, select) {
-        var optgroup = document.getElementById("optgroup");
-        if(optgroup != null) {
-            optgroup.remove();
-        }
-        optgroup = criarNoElemento(select, "optgroup");
-        criarNoAtributo(optgroup, "id", "optgroup");
-        for(let u of dados) {
-            let option = criarNoElemento(optgroup, "option");
-            //alert(option);
-            option.innerHTML = u.nome;
-            criarNoAtributo(option, "value", u.nome);
+        // Limpar qualquer opção anterior
+        select.innerHTML = '';
+    
+        let nomePendente = null;
+        for (let u of dados) {
+            if (nomePendente !== null && u.id !== undefined) {
+                let option = document.createElement("option");
+                option.value = u.id;
+                option.innerHTML = nomePendente; // Usar o nome pendente
+                select.appendChild(option);
+                nomePendente = null; // Reiniciar o nome pendente
+            }
+            
+            if (u.nome !== undefined) {
+                nomePendente = u.nome; // Armazenar o nome pendente
+            }
         }
     }
+  
+    
+    
 
     function criarNoElemento(pai, nomeElemento) {
         //completar aqui

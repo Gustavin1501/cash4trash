@@ -14,36 +14,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cash4Trash</title>
-    <link href="css/estilo.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/outroteste.css" />
 </head>
 <body>
     <header>
-        <div class="container">
-            <div id="logo">
-                <a href="../index/index.php"><img src="../imagens/logo.svg" id="logo"></a>
-            </div>
-        </div>
-            
-        </div>
-    </header>
+<?php
+      include_once("../include/navbar.php");
+?>
+    </header> 
+    <script>
+            const menuc4t = document.querySelector('.menuc4t');
+            const NavMenuc4t = document.querySelector('.nav-menuc4t');
+
+            menuc4t.addEventListener('click', () => {
+                menuc4t.classList.toggle('ativo');
+                NavMenuc4t.classList.toggle('ativo');
+            })
+    </script>
+
     <main>
         <div class="container-produtos">
+        <section class="section">
         <?php
                         
-            session_start();
             if(isset($_SESSION["email"])){
             echo'
-            <div class="bloco">
-                <div class="categoria">
-                    <h4>
-                        MAIS PRÓXIMOS DE VOCÊ
-                    </h4>
-                </div>
-                <div class="produtos">';
+            <!--PRÓXIMOS AO SEU ENDEREÇO-->
+            <div class="container">
+            <div class="section_header">
+            <h3 class="section_title">PRÓXIMOS AO SEU ENDEREÇO</h3>
+            </div>
+            <!--Swipper-->
+            <div class="swiper"> <!--swiper mySwiper-->
+            <div class="swiper-wrapper">';
                     
-                            //pega cep
+                        //pega cep
                         $cepUsuario = select_query("select cep from usuario where email='". $_SESSION["email"] . "'", $conexao);
                         $cepParceiros = select_query("select cep, nome from usuario where tipo='L'", $conexao);
 
@@ -57,86 +65,113 @@
                                 if ($linha["lote"]!=$lote){
                                     $lote=$linha["lote"];
                                     $img=$linha["imagem"];
-                                    $consulta_lote = select_query("select valor_atual, nome from lote where id='". $lote . "' and statu='1'", $conexao);
+                                    $consulta_lote = select_query("select valor_atual, nome from lote where id='". $lote . "' and statu=1", $conexao);
                                     while ($linha = mysqli_fetch_assoc($consulta_lote)) {
-                                        echo '<div class="produto">
-                                        <a href="produto.php?id='. $lote .'"><img width="150px" src="../produto/'. $img .' ">
-                                        <p class="nome-produto">'. $linha["nome"] .'</p>
-                                        <p class="preco-produto">R$ '. $linha["valor_atual"] .' </p></a>
+                                        echo '
+                                        <div class="swiper-slide">
+                                            <a href="produto.php?id='. $lote .'">
+                                            <div class="card">
+                                                <div class="card_top">
+                                                    <img src="../produto/'. $img .' ">
+                                                </div>
+                                                <div class="card_body">
+                                                    <h3 class="card_title">'. $linha["nome"] .'</h3>
+                                                    <p class="card_price">R$ '. $linha["valor_atual"] .'</p>
+                                                </div>
+                                            </div>
+                                            </a>
                                         </div>';
-                                
+                                        
                                     }
-
+                                    mysqli_free_result($consulta_lote);
                                     
                                 }
                                 
                             }
+                           
+                            
+                            mysqli_free_result($consulta_lixo);
                         }
 
-                        mysqli_free_result($consulta_lixo);
-                        mysqli_free_result($consulta_lote);
+                        
+                        
 
                         //mysqli_close($conexao);
                         
                 echo'    
                 </div>
-            
-                <br/>
-                
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                </div>
                 </div>';
                 }
             ?>
-            <div class="bloco">
-                <div class="categoria">
-                    <h4>
-                        MELHORES DA SEMANA
-                    </h4>
-                </div>
-                <div class="produtos">
-                    <?php
-                        $consulta_lote = select_query("select id,valor_atual, nome from lote where melhores='1' and statu='1'", $conexao);
-                        while ($linha = mysqli_fetch_assoc($consulta_lote)) {
-                            $id=$linha["id"];
-                            $consulta_lixo = select_query("select imagem from lixo where lote='". $id . "' order by lote limit 1", $conexao);
-                             while ($linha2 = mysqli_fetch_assoc($consulta_lixo)) {
-                                echo '<div class="produto">
-                                <a href="produto.php?id='. $id .'"><img width="150px" src="../produto/'. $linha2["imagem"] .' ">
-                                <p class="nome-produto">'. $linha["nome"] .'</p>
-                                <p class="preco-produto">R$ '. $linha["valor_atual"] .' </p></a>
-                                </div>';
-                        
-                            }
-                        }
-                        
-
-                        //mysqli_free_result($consulta_lixo);
-                        //mysqli_free_result($consulta_lote);
-
-                        //mysqli_close($conexao);
-                        
-                    ?>
-                </div>
-                <br/>
-                
+        <div class="container">
+            <div class="section_header">
+                <h3 class="section_title">MELHORES DA SEMANA</h3>
             </div>
-            <div class="bloco">
-                <div class="categoria">
-                    <h4>
-                        COMEÇARAM AGORA
-                    </h4>
+            <div class="swiper">
+            <div class="swiper-wrapper">
+                <?php
+                    $consulta_lote = select_query("select id,valor_atual, nome from lote where melhores='1' and statu=1", $conexao);
+                    while ($linha = mysqli_fetch_assoc($consulta_lote)) {
+                        $id=$linha["id"];
+                        $consulta_lixo = select_query("select imagem from lixo where lote='". $id . "' order by lote limit 1", $conexao);
+                            while ($linha2 = mysqli_fetch_assoc($consulta_lixo)) {
+                            echo '
+                            <div class="swiper-slide">
+                            <a href="produto.php?id='. $id .'">
+                                <div class="card">
+                                <div class="card_top">
+                                <img src="../produto/'. $linha2["imagem"] .' " class="card_img">
+                                </div>
+                                <div class="card_body">
+                                <h3 class="card_title">'. $linha["nome"] .'</h3>
+                                <p class="card_price">R$ '. $linha["valor_atual"] .'</p>
+                                </div>  
+                            </a>
+                            </div>';
+                    
+                        }
+                    }
+                    
+
+                    //mysqli_free_result($consulta_lixo);
+                    //mysqli_free_result($consulta_lote);
+
+                    //mysqli_close($conexao);
+                    
+                ?>
                 </div>
-                <div class="produtos">
+                <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="section_header">
+                <h3 class="section_title">COMEÇARAM AGORA</h3>
+            </div>
+            <div class="swiper">
+            <div class="swiper-wrapper">
                     <?php
                         //recem add
-                        $consulta_lote = select_query("select id,valor_atual, nome from lote where statu='1' order by inicio limit 15", $conexao);
+                        $consulta_lote = select_query("select id,valor_atual, nome from lote where statu=1 order by inicio limit 15", $conexao);
                         while ($linha = mysqli_fetch_assoc($consulta_lote)) {
                             $id=$linha["id"];
                             $consulta_lixo = select_query("select imagem from lixo where lote='". $id . "' order by lote limit 1", $conexao);
                             while ($linha2 = mysqli_fetch_assoc($consulta_lixo)) {
-                                echo '<div class="produto">
-                                <a href="produto.php?id='. $id .'"><img width="150px" src="../produto/'. $linha2["imagem"] .' ">
-                                <p class="nome-produto">'. $linha["nome"] .'</p>
-                                <p class="preco-produto">R$ '. $linha["valor_atual"] .' </p></a>
+                                echo '
+                                <div class="swiper-slide">
+                                <a href="produto.php?id='. $id .'">
+                                    <div class="card">
+                                    <div class="card_top">
+                                    <img src="../produto/'. $linha2["imagem"] .' " class="card_img">
+                                    </div>
+                                    <div class="card_body">
+                                    <h3 class="card_title">'. $linha["nome"] .'</h3>
+                                    <p class="card_price">R$ '. $linha["valor_atual"] .'</p>
+                                    </div>  
+                                </a>
                                 </div>';
                         
                             }
@@ -150,44 +185,54 @@
                         
                     ?>
                 </div>
-            
-                <br/>
-                
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
-            <div class="bloco">
-                <div class="categoria">
-                    <h4>
-                        FAÇA O ÚLTIMO LANCE!
-                    </h4>
-                </div>
-                <div class="produtos">
-                    <?php
-                        //add ha mais tempo
-                        $consulta_lote = select_query("select id,valor_atual, nome from lote where statu='1' order by inicio desc limit 15", $conexao);
-                        while ($linha = mysqli_fetch_assoc($consulta_lote)) {
-                            $id=$linha["id"];
-                            $consulta_lixo = select_query("select imagem from lixo where lote='". $id . "' order by lote limit 1", $conexao);
-                            while ($linha2 = mysqli_fetch_assoc($consulta_lixo)) {
-                                echo '<div class="produto">
-                                <a href="produto.php?id='. $id .'"><img width="150px" src="../produto/'. $linha2["imagem"] .' ">
-                                <p class="nome-produto">'. $linha["nome"] .'</p>
-                                <p class="preco-produto">R$ '. $linha["valor_atual"] .' </p></a>
-                                </div>';
-                        
-                            }
+        </div>
+        <div class="container">
+            <div class="section_header">
+                <h3 class="section_title">FAÇA O ÚLTIMO LANCE</h3>
+            </div>
+            <div class="swiper">
+            <div class="swiper-wrapper">
+                <?php
+                    //add ha mais tempo
+
+                    $consulta_lote = select_query("select id,valor_atual, nome from lote where statu=1 order by inicio desc limit 15", $conexao);
+                    
+                    while ($linha = mysqli_fetch_assoc($consulta_lote)) {
+                        $id=$linha["id"];
+                        $consulta_lixo = select_query("select imagem from lixo where lote='". $id . "' order by lote limit 1", $conexao);
+                        while ($linha2 = mysqli_fetch_assoc($consulta_lixo)) {
+                            echo '
+                            <div class="swiper-slide">
+                            <a href="produto.php?id='. $id .'">
+                                <div class="card">
+                                <div class="card_top">
+                                <img src="../produto/'. $linha2["imagem"] .' " class="card_img">
+                                </div>
+                                <div class="card_body">
+                                <h3 class="card_title">'. $linha["nome"] .'</h3>
+                                <p class="card_price">R$ '. $linha["valor_atual"] .'</p>
+                                </div>  
+                            </a>
+                            </div>';
+                            
                         }
-                        
-
                         mysqli_free_result($consulta_lixo);
-                        mysqli_free_result($consulta_lote);
+                    }
+                    mysqli_free_result($consulta_lote);
 
-                        mysqli_close($conexao);
-                    ?>
+                    
+                    
+
+                    mysqli_close($conexao);
+                ?>
                 </div>
-            
-                <br/>
-                
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
+        </div>
 
         </div>
     </main>

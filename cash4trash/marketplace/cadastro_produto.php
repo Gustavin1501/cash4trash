@@ -28,7 +28,7 @@ if (move_uploaded_file($file["tmp_name"], $dir . '/' . $nome_img)) {
     $nome = $_POST["nome"];
     $desc = $_POST["desc"];
     $categoria = $_POST["categoria"];
-    $marca = $_POST["marca"];
+    $marca = intval($_POST["marca"]);
     $valor = intval($_POST["valor"]);
     $estoque = intval($_POST["estoque"]);
 
@@ -49,7 +49,7 @@ if (move_uploaded_file($file["tmp_name"], $dir . '/' . $nome_img)) {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 
-        mysqli_stmt_bind_param($stmt, "sssssssii", $nome, $desc, $status, $usuario, $diretorio, $marca, $categoria, $valor, $estoque); // Vincular parâmetros
+        mysqli_stmt_bind_param($stmt, "sssssisii", $nome, $desc, $status, $usuario, $diretorio, $marca, $categoria, $valor, $estoque); // Vincular parâmetros
     
         $funcionou = mysqli_stmt_execute($stmt); // Executar inserção
 

@@ -1,7 +1,7 @@
 <?php
 
 	function consultar_marcas($conexao, $categoria) {
-		$sql = "select nome from marca where categoria = ? order by nome";
+		$sql = "select nome, id from marca where categoria = ? order by nome";
 		
 		$stmt = mysqli_prepare($conexao, $sql);
 
@@ -19,6 +19,7 @@
 					$i = 0;
 					while($linha = mysqli_fetch_assoc($resultado)) {
 						$marcas[$i++] = array("nome" => $linha["nome"]);
+						$marcas[$i++] = array("id" => $linha["id"]);
 					}
 					mysqli_free_result($resultado);
 				}
