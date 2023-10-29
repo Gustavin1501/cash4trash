@@ -50,18 +50,18 @@
     <!--INPUT FILE-->
     <form action="cadastro_lixo.php" id="form" method="post" enctype="multipart/form-data">
     <div class="input_file">
-        <label class="picture" for="picture__input" tabindex="0">
+        <label class="picture" for="picture__input" tabindex="0" >
             <span class="picture__image"></span>
         </label>
-        <input type="file" accept="image/*" name="picture__input" id="picture__input">
-        <script src="main.js"></script>
+        <input type="file" accept="image/*" name="picture__input" id="picture__input" required>
+        <script src="js/main.js"></script>
     </div>
 
     <div class="form-box">
         <h2>Cadastrar produto</h2>
         <p>Preencha os dados abaixo do produto que deseja anunciar.</p>
 
-            <select name="categoria" id="categoria" class="form__input" >
+            <select name="categoria" id="categoria" class="form__input" required>
                 <option value="">Selecione a categoria do e-lixo</option>
                 <?php 
 
@@ -75,7 +75,7 @@
                 ?>
             </select>
 
-            <select name="marca" id="marca" class="form__input" >
+            <select name="marca" id="marca" class="form__input" required>
                 <option value="">Selecione a marca do e-lixo</option>
             </select>
 
@@ -89,7 +89,7 @@
                 <input type="text" name="desc" id="desc" placeholder="Descrição (peças danificadas/funcionando)" required>
             </div>
 
-            <select name="ponto" id="ponto" class="form__input" >
+            <select name="ponto" id="ponto" class="form__input" required>
                 <option value="">Selecione o ponto de coleta para levar seu e-lixo</option>
                 <?php 
 

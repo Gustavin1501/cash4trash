@@ -60,6 +60,6 @@ if (move_uploaded_file($file["tmp_name"], $dir . '/' . $nome_img)) {
         echo "Problema na conexão: " . mysqli_connect_error();
     }
 } else {
-    echo "Erro, o arquivo não pode ser enviado.";
+    header("Location: ../cadastros/cadastro_erro.html"); 
 }
 ?>
