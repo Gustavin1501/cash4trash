@@ -116,13 +116,14 @@ CREATE TABLE IF NOT EXISTS `lixo` (
   `descricao` varchar(300) CHARACTER SET utf8 NOT NULL,
   `preco` float NOT NULL,
   `statu` varchar(1) NOT NULL,
-  `usuario` varchar(20) NOT NULL,
+  `usuario` varchar(50) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
   `parceiro` varchar(20) NOT NULL,
   `imagem` varchar(80) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `imagem` (`imagem`),
   KEY `usuario` (`usuario`),
-  KEY `parceiro` (`parceiro`)
+  KEY `parceiro` (`parceiro`),
+  FOREIGN KEY (`usuario`) REFERENCES `usuario` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
 
 --
@@ -154,6 +155,7 @@ INSERT INTO `lixo` (`id`, `lote`, `categoria`, `marca`, `nome`, `descricao`, `pr
 
 CREATE TABLE IF NOT EXISTS `lote` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(50) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
   `nome` varchar(50) CHARACTER SET utf8 NOT NULL,
   `inicio` double NOT NULL,
   `valor_inicial` float NOT NULL,
@@ -162,16 +164,18 @@ CREATE TABLE IF NOT EXISTS `lote` (
   `quantidade` int(11) NOT NULL,
   `melhores` int(11) NOT NULL,
   `statu` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  foreign key (`usuario`) references `usuario` (`email`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22906 ;
 
 --
 -- Extraindo dados da tabela `lote`
 --
 
-INSERT INTO `lote` (`id`, `nome`, `inicio`, `valor_inicial`, `valor_atual`, `descricao`, `quantidade`, `melhores`, `statu`) VALUES
-(22896, 'Geladeiras - Consul - Duplex CRM44AB Frost Free co', 1696116912, 60, 64.05, 'Consul - Duplex CRM44AB Frost Free com  - motor quebrado</br>Consul - Duplex CRM44AB Frost Free com  - motor e painel quebrados</br>', 2, 0, 3),
-(22897, 'Baterias - Moura - M60GE\n', 1694927912, 7, 14, 'Moura - M60GE - descarregada</br>Moura - M60GE - descarregada</br>Moura - M60GE - descarregada</br>', 3, 0, 3),
+INSERT INTO `lote` (`id`, `usuario`, `nome`, `inicio`, `valor_inicial`, `valor_atual`, `descricao`, `quantidade`, `melhores`, `statu`) VALUES
+(22896, 'laurasthefanycolombo@gmail.co', 'Geladeiras - Consul - Duplex CRM44AB Frost Free co', 1696116912, 60, 64.05, 'Consul - Duplex CRM44AB Frost Free com  - motor quebrado</br>Consul - Duplex CRM44AB Frost Free com  - motor e painel quebrados</br>', 2, 0, 3),
+-- TEM Q ADICIONAR O EMAIL DO USUARIO
+(22897, 'camillacamilla@gmail.com','Baterias - Moura - M60GE\n', 1694927912, 7, 14, 'Moura - M60GE - descarregada</br>Moura - M60GE - descarregada</br>Moura - M60GE - descarregada</br>', 3, 0, 3),
 (22898, 'Baterias - Moura\n', 1694116912, 7, 7, 'Moura - M60GE - descarregada</br>Moura - M60GE - descarregada</br>Moura - M60GO - descarregada</br>', 3, 0, 4),
 (22899, 'Ventilador Arco', 1696521993, 15, 57.07, 'Arco - ventiladorzao - sem pá</br>', 1, 0, 3),
 (22900, 'Fogões Brastemp - Fogão grande FX0283', 1698250005, 50, 50, 'Brastemp - Fogão grande FX0283 - Quebrado, não acende</br>', 1, 1, 1),

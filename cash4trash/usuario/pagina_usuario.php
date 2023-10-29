@@ -10,7 +10,8 @@
 <?php
   include_once("../include/navbar.php");
 
-  require "../index/conexao.php";
+  //require "../index/conexao.php";
+  require "info_usuario.php";
 
   $conexao = getConexao();
 
@@ -134,6 +135,37 @@
                 </form>
         </div>
         </div>
+        <?php
+          $lixos = exibirLixo();
+          if($lixos){
+            //var_dump($lixos);
+            foreach($lixos as $lixo)
+            {
+              ?>
+              <p class=sk><?=$lixo[2]?></p>
+              <p class=sk><?=$lixo[3]?></p>
+              <?php
+            }
+          }
+          else{
+            ?>
+            <p>"nao tem lixor ";</p>
+            <?php
+          }
+
+          // $lotes = exibirLote();
+          // if($lotes){
+          //   //var_dump($lotes);
+          //   foreach($lotes as $lote)
+          //   {
+          //     echo $lote[2] . $lote[5] . "<br>";
+
+          //   }
+          // }
+          // else{
+          //   echo "nao tem loter";
+          // }
+        ?>
 
             
       </div>
