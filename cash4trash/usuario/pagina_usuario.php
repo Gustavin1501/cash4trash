@@ -4,6 +4,7 @@
     <link rel="icon" type="image/x-icon" href="../imagens/favicon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 
 <body>
@@ -142,6 +143,7 @@
             foreach($lixos as $lixo)
             {
               ?>
+              <img class=sk href="<?=$lixo[10]?>">
               <p class=sk><?=$lixo[2]?></p>
               <p class=sk><?=$lixo[3]?></p>
               <?php
@@ -153,18 +155,23 @@
             <?php
           }
 
-          // $lotes = exibirLote();
-          // if($lotes){
-          //   //var_dump($lotes);
-          //   foreach($lotes as $lote)
-          //   {
-          //     echo $lote[2] . $lote[5] . "<br>";
+          $lotes = exibirLote();
+          if($lotes){
+           //var_dump($lotes);
+            foreach($lotes as $lote)
+          {
+            ?>
+              <p class=sk><?=$lote[2]?></p>
+              <p class=sk><?=$lote[5]?></p>
+              <?php
 
-          //   }
-          // }
-          // else{
-          //   echo "nao tem loter";
-          // }
+          }
+        }
+          else{
+            ?>
+            <p>"nao tem loter ";</p>
+            <?php
+          }
         ?>
 
             
