@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="css/detailproduct.css">
     <title>Cash4Trash</title>
@@ -46,6 +47,120 @@
                 <h4 class="mt-5 mb-3">Descrição</h4>
                 <span>Upgrade gratuito para o Windows 11 quando disponível. Conferir O samsung notebook flash é um dispositivo de estilo único que dá um up no seu look, esteja em suas mãos ou na sua mesa; construído para encaixar em sua rotina e projetado com atenção aos detalhes. Monte o seu look com o notebook flash</span>
             </div>
+        </div>
+    </section>
+
+    <!--Lotes semelhantes-->
+    <section class="section_lotes">
+    <div class="container">
+            <div class="section_header">
+                <h3 class="section_title">LOTES SEMELHANTES</h3>
+            </div>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="imagens/item-1.jpg" class="card_img">
+                        </div>
+                        <div class="card_body">
+                            <h3 class="card_title">Lixo</h3>
+                            <p class="card_price">R$ 100</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="imagens/item-2.jpg" class="card_img">
+                        </div>
+                        <div class="card_body">
+                            <h3 class="card_title">Lixo</h3>
+                            <p class="card_price">R$ 100</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="imagens/item-3.jpg" class="card_img">
+                        </div>
+                        <div class="card_body">
+                            <h3 class="card_title">Lixo</h3>
+                            <p class="card_price">R$ 100</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="imagens/item-4.jpg" class="card_img">
+                        </div>
+                        <div class="card_body">
+                            <h3 class="card_title">Lixo</h3>
+                            <p class="card_price">R$ 100</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="imagens/item-6.jpg" class="card_img">
+                        </div>
+                        <div class="card_body">
+                            <h3 class="card_title">Lixo</h3>
+                            <p class="card_price">R$ 100</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="imagens/item-7.jpg" class="card_img">
+                        </div>
+                        <div class="card_body">
+                            <h3 class="card_title">Lixo</h3>
+                            <p class="card_price">R$ 100</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="imagens/item-8.jpg" class="card_img">
+                        </div>
+                        <div class="card_body">
+                            <h3 class="card_title">Lixo</h3>
+                            <p class="card_price">R$ 100</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="imagens/item-9.jpg" class="card_img">
+                        </div>
+                        <div class="card_body">
+                            <h3 class="card_title">Lixo</h3>
+                            <p class="card_price">R$ 100</p>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="card">
+                        <div class="card_top">
+                            <img src="imagens/item-10.jpg" class="card_img">
+                        </div>
+                        <div class="card_body">
+                            <h3 class="card_title">Lixo</h3>
+                            <p class="card_price">R$ 100</p>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
         </div>
     </section>
 
@@ -117,5 +232,7 @@
         MainImg.src = smallimg[15].src;
        }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="js/outroteste.js"></script>
 </body>
 </htm
