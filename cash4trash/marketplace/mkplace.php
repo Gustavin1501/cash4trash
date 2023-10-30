@@ -110,14 +110,5 @@
             </div>
         </div>
     </main>
-
-    <br>
-
-    <footer>
-        <center>
-            Copyright © 2022 BloomyBits. Todos os direitos reservados. 
-        </center>
-    </footer>
-
 </body>
 </html>

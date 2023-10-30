@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPk.phpproduto-mk.php>k.phpproduto-mk.php lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,27 +25,27 @@
                 <div class="produtos">
 
                     <div class="produto">
-                        <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                        <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                         <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                         <p class="preco-produto">C$300 + R$100</p></a>
                     </div>
                     <div class="produto">
-                        <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                        <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                         <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                         <p class="preco-produto">C$300 + R$100</p></a>
                     </div>
                     <div class="produto">
-                        <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                        <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                         <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                         <p class="preco-produto">C$300 + R$100</p></a>
                     </div>
                     <div class="produto">
-                        <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                        <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                         <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                         <p class="preco-produto">C$300 + R$100</p></a>
                     </div>
                     <div class="produto">
-                        <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                        <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                         <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                         <p class="preco-produto">C$300 + R$100</p></a>
                     </div>
@@ -61,27 +60,27 @@
                     <div class="produtos">
     
                         <div class="produto">
-                            <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                            <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                             <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                             <p class="preco-produto">C$300 + R$100</p></a>
                         </div>
                         <div class="produto">
-                            <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                            <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                             <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                             <p class="preco-produto">C$300 + R$100</p></a>
                         </div>
                         <div class="produto">
-                            <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                            <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                             <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                             <p class="preco-produto">C$300 + R$100</p></a>
                         </div>
                         <div class="produto">
-                            <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                            <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                             <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                             <p class="preco-produto">C$300 + R$100</p></a>
                         </div>
                         <div class="produto">
-                            <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                            <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                             <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                             <p class="preco-produto">C$300 + R$100</p></a>
                         </div>
@@ -97,27 +96,27 @@
                     <div class="produtos">
     
                         <div class="produto">
-                            <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                            <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                             <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                             <p class="preco-produto">C$300 + R$100</p></a>
                         </div>
                         <div class="produto">
-                            <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                            <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                             <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                             <p class="preco-produto">C$300 + R$100</p></a>
                         </div>
                         <div class="produto">
-                            <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                            <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                             <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                             <p class="preco-produto">C$300 + R$100</p></a>
                         </div>
                         <div class="produto">
-                            <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                            <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                             <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                             <p class="preco-produto">C$300 + R$100</p></a>
                         </div>
                         <div class="produto">
-                            <a href="produto-mk.html"><img width="150px" src="../imagens/produto-mk.svg">
+                            <a href="produto-mk.php"><img width="150px" src="../imagens/produto-mk.svg">
                             <p class="nome-produto">Batedeira Planetária Philco PHP500PS Turbo 700W</p>
                             <p class="preco-produto">C$300 + R$100</p></a>
                         </div>
@@ -130,4 +129,4 @@
         </div>
     </main>
 </body>
-</html>
+k.phpproduto-mk.php>
