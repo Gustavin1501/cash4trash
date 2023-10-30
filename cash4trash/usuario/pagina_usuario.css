@@ -248,6 +248,28 @@ button:hover{
   border: 2px;
 }
 
+/*table*/
+.div_table{
+  display: flex;
+  justify-content: center;
+}
+
+table, th, td{
+  padding: 0.5rem;
+}
+
+main.table{
+  width: 50%;
+  height: auto;
+  background-color: #e3770b57;
+}
+
+.table_header{
+  width: 100%;
+  height: auto;
+  background-color: #f48a5dc5;
+}
+
 @media (width < 785px) {
 
   .nav-menu.ativo{

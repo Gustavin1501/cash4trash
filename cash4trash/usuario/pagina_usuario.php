@@ -134,17 +134,34 @@
                 </form>
         </div>
         </div>
-        <div>
-        <!-- <?php
+        <div class="div_table">
+        <?php
           $lixos = exibirLixo();
           if($lixos){
-            //var_dump($lixos);
+            // var_dump($lixos);
             foreach($lixos as $lixo)
             {
-              ?>
-              <img class=sk href="<?=$lixo[10]?>">
-              <p class=sk><?=$lixo[2]?></p>
-              <p class=sk><?=$lixo[3]?></p>
+        ?>
+        <main class="table">
+          <section class="table_header">
+                <h1>E-lixos cadastrados:</h1>
+          </section>
+          <section class="table_body">
+            <table>
+              <thead>
+                <tr>
+                  <th>Categoria</th>
+                  <th>Nome</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><?=$lixo[2]?></td>
+                  <td><?=$lixo[4]?></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
               <?php
             }
           }
@@ -153,7 +170,10 @@
             <p>"nao tem lixor ";</p>
             <?php
           }
+          ?>
+  </main>
 
+          <?php
           $lotes = exibirLote();
           if($lotes){
            //var_dump($lotes);
@@ -171,7 +191,7 @@
             <p>"nao tem loter ";</p>
             <?php
           }
-        ?> -->
+        ?>
         </div>
       </div>
     </div>
