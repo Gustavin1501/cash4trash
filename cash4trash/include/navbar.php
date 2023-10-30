@@ -182,7 +182,7 @@ session_start();
           <ul class="nav-menu">
             <li class="nav-item"><a href="../leiloes/produtos.php">Leilões</a></li>
             <li class="nav-item"><a href="../produto/cadastro_produto.php">Anunciar</a></li>
-            <li class="nav-item"><a href="../marketplace/mkplace.html">Marketplace</a></li>
+            <li class="nav-item"><a href="../marketplace/mkplace.php">Marketplace</a></li>
             <li class="nav-item"><a href="#">Contato</a></li>
             <?php
               if(!isset($_SESSION["nome"])){ //SE ESTIVER DESLOGADO 
