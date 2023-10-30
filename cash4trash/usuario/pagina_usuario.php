@@ -1,10 +1,9 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="pagina_usuario.css"/>
     <link rel="icon" type="image/x-icon" href="../imagens/favicon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="pagina_usuario.css"/>
 </head>
 
 <body>
@@ -82,7 +81,6 @@
             <i class="ri-home-3-line"></i> <?= $_SESSION['endereco'][0] . ", " . $_SESSION['endereco'][1] ?> <!--fazer consulta no banco-->
           </p>
           <div class="action__btns">
-            <!--<button class="dados">MEUS DADOS</button>-->
             <button type="button" id="openModal" class="editar">EDITAR PERFIL</button>
             <div class="div_logout">
             <a href="../index/logout.php"><i class="logout ri-logout-box-r-line"></i></a>
@@ -136,7 +134,8 @@
                 </form>
         </div>
         </div>
-        <?php
+        <div>
+        <!-- <?php
           $lixos = exibirLixo();
           if($lixos){
             //var_dump($lixos);
@@ -172,9 +171,8 @@
             <p>"nao tem loter ";</p>
             <?php
           }
-        ?>
-
-            
+        ?> -->
+        </div>
       </div>
     </div>
   </div>
