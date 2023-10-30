@@ -53,7 +53,7 @@
             <span class="picture__image"></span>
         </label>
         <input type="file" accept="image/*" name="picture__input" id="picture__input">
-        <script src="main.js"></script>
+        <script src="js/main.js"></script>
     </div>
 
     <div class="form-box">

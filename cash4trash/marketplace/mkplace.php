@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marketplace</title>
-    <link href="estilo-mp.css" rel="stylesheet">
+    <link href="css/estilo-mp.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
     <style>
