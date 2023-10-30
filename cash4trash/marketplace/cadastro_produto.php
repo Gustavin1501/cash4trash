@@ -54,18 +54,20 @@ if (move_uploaded_file($file["tmp_name"], $dir . '/' . $nome_img)) {
         $funcionou = mysqli_stmt_execute($stmt); // Executar inserção
 
         if ($funcionou) {
-            //header("location: sucesso_cad_produto.html");
-            echo "produto cadastrado com sucesso";
+            header("location: ../cadastros/cadastro_produto.html");
         } else {
-            echo "Problema na comunicação com o BD: " . mysqli_stmt_error($stmt);
+            header("Location:../cadastros/cadastro_erro.html");
+            //echo "Problema na comunicação com o BD: " . mysqli_stmt_error($stmt);
         }
     
         mysqli_stmt_close($stmt); // Fechar declaração preparada
         mysqli_close($conexao); // Fechar conexão com o banco de dados
     } else {
-        echo "Problema na conexão: " . mysqli_connect_error();
+        header("Location:../cadastros/cadastro_erro.html");
+        //echo "Problema na conexão: " . mysqli_connect_error();
     }
 } else {
-    echo "Erro, o arquivo não pode ser enviado.";
+    header("Location:../cadastros/cadastro_erro.html");
+    //echo "Erro, o arquivo não pode ser enviado.";
 }
 ?>
