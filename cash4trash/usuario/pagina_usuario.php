@@ -135,13 +135,6 @@
         </div>
         </div>
         <div class="div_table">
-        <?php
-          $lixos = exibirLixo();
-          if($lixos){
-            // var_dump($lixos);
-            foreach($lixos as $lixo)
-            {
-        ?>
         <main class="table">
           <section class="table_header">
                 <h1>E-lixos cadastrados:</h1>
@@ -156,6 +149,13 @@
               </thead>
               <tbody>
                 <tr>
+                <?php
+          $lixos = exibirLixo();
+          if($lixos){
+            // var_dump($lixos);
+            foreach($lixos as $lixo)
+            {
+          ?>
                   <td><?=$lixo[2]?></td>
                   <td><?=$lixo[4]?></td>
                 </tr>
