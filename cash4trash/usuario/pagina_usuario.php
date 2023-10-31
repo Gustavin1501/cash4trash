@@ -134,12 +134,20 @@
                 </form>
         </div>
         </div>
-        <div class="div_table">
+        <center>
+        <div class="table-container">
         <main class="table">
           <section class="table_header">
                 <h1>E-lixos cadastrados:</h1>
           </section>
           <section class="table_body">
+          <?php
+                $lixos = exibirLixo();
+                if($lixos){
+                  // var_dump($lixos);
+                  foreach($lixos as $lixo)
+                  {
+                ?>
             <table>
               <thead>
                 <tr>
@@ -149,50 +157,62 @@
               </thead>
               <tbody>
                 <tr>
-                <?php
-          $lixos = exibirLixo();
-          if($lixos){
-            // var_dump($lixos);
-            foreach($lixos as $lixo)
-            {
-          ?>
                   <td><?=$lixo[2]?></td>
                   <td><?=$lixo[4]?></td>
                 </tr>
+                <?php
+            }
+            ?>
               </tbody>
             </table>
           </section>
-              <?php
-            }
+          <?php
           }
           else{
             ?>
-            <p>"nao tem lixor ";</p>
+            <p class="title_ind">Você não cadastrou nenhum produto.</p>
+            <img class="ind" src="../imagens/ind.svg">
             <?php
           }
           ?>
   </main>
-
-          <?php
-          $lotes = exibirLote();
-          if($lotes){
-           //var_dump($lotes);
-            foreach($lotes as $lote)
-          {
-            ?>
-              <p class=sk><?=$lote[2]?></p>
-              <p class=sk><?=$lote[5]?></p>
               <?php
-
-          }
-        }
-          else{
+                $lotes = exibirLote();
+                if($lotes){
+                  // var_dump($lotes);
+                  foreach($lotes as $lote)
+                  {
+                ?>
+        <main class="table">
+          <section class="table_header">
+                <h1>Lotes atuais:</h1>
+          </section>
+          <section class="table_body">
+        
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Valor atual</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><?=$lote[2]?></td>
+                  <td><?=$lote[5]?></td>
+                </tr>
+                <?php
+            }
             ?>
-            <p>"nao tem loter ";</p>
-            <?php
+              </tbody>
+            </table>
+          </section>
+          <?php
           }
-        ?>
+          ?>
+  </main>
         </div>
+        </center>
       </div>
     </div>
   </div>
