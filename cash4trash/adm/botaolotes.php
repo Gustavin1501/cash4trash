@@ -28,6 +28,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/botaolotes.css">
     <title>Gerar lote</title>
 </head>
 
@@ -35,15 +37,15 @@
     <div class="form sign-in-container">
         <header>
             <div class="logo">
-                <a href="../index.php">
-                <img src="../imgs/cash4trash.png">
+                <a href="index.php">
+                <img src="../imagens/logo.jpg">
                 </a>
             </div>
         </header>
 
         <form action="formarlotes.php" method="post">
             
-            <h1>Especifique o lote que será gerado</h1>
+            <h3>Especifique o lote que será gerado</h3>
 
             <select name="categoria" id="categoria" class="form__input" >
                 <option value="">Selecione a categoria do e-lixo</option>
@@ -69,11 +71,11 @@
         
 
         <div>
-            <table>
+            <table class="table table-striped">
                 <thead>
                     <tr>
-                        <td>Categoria</td>
-                        <td>Quantidade de produtos</td>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Quantidade de produtos</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -86,8 +88,6 @@
                                 echo "<td>".mysqli_num_rows($resultado2)."</td>";
                                 echo "</tr>";
                             }
-                            
-                        
                         ?>
                 </tbody>
             </table>

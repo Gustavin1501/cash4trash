@@ -27,6 +27,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/enviaemail.css">
     <title>Enviar e-mails</title>
 </head>
 
@@ -34,15 +36,15 @@
     <div class="form sign-in-container">
         <header>
             <div class="logo">
-                <a href="../index.php">
-                <img src="../imgs/cash4trash.png">
+                <a href="index.php">
+                <img src="../imagens/logo.jpg">
                 </a>
             </div>
         </header>
 
         <form action="processaemails.php" method="post">
             
-            <h1>Quantidade de Usuários pendentes 
+            <h3>Quantidade de Usuários pendentes:
 
             <?php
 
@@ -58,7 +60,7 @@
                     }
                     
                 }
-                echo $id . "</h1>";
+                echo $id . "</h3>";
                 echo  "<input type='hidden' name='quantidade' value='".$id ."'>";
                 echo $hiddens;
                 mysqli_close($conexao);
